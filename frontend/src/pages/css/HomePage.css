@@ -73,7 +73,7 @@
     background-color: #b34ec5;
 }
 
-/*Sucursales */
+/*Sucursales 
 .sucursales {
     text-align: center;
     padding: 4rem 2rem;
@@ -109,17 +109,19 @@
     background-color: #5e1578;
 }
 
+*/
+
 /*responsive*/
 
 /*Hero*/
 @media (max-width: 1024px) {
     .hero {
-        flex-direction: column; /* Logo arriba, texto abajo */
+        flex-direction: column;
         padding: 20px;
-        transform: translateY(-30px);
+        padding-top: 250px;
     }
 
-    .logo {
+    .hero-logo {
         max-width: 50%;
         margin-bottom: 30px;
     }
@@ -149,10 +151,12 @@
 
 @media (max-width: 600px) {
     .hero {
-        transform: translateY(-20px);
+        flex-direction: column;
+        padding: 20px;
+        padding-top: 250px;
     }
 
-    .logo {
+    .hero-logo {
         max-width: 70%;
     }
 
