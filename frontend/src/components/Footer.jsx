@@ -8,7 +8,10 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-logo">
-                    <img src={logo} alt="Logo" />
+                    <a href="/">
+                        <img src={logo} alt="Logo" />
+                    </a>
+                    
                 </div>
                 <div className="footer-contact">
                     <h3>Contacto</h3>
