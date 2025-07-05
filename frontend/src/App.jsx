@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from './components/Header';
-import HomePage from './pages/HomePage';
+import { HomePage, Sucursales } from './pages';
 import Footer from './components/Footer';
 
 
@@ -11,6 +11,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<HomePage />}/>
+        <Route path="/sucursales" element={<Sucursales />}/>
       </Routes>
       <Footer/>
     </>

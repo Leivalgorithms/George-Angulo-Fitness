@@ -1,0 +1,104 @@
+.sucursales {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sucursales-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.box-map {
+    margin: 2rem 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #eee;
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 100%;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+.sucursal-card {
+    border: 2px solid #7B1FA2;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    color: #333;
+    font-size: 1rem;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(123, 31, 162, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.card-phone {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.card-phone a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.card-hours p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+.sucursal-boton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background-color: white;
+    border: 2px solid #7B1FA2;
+    border-radius: 20px;
+    color: #7B1FA2;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 6px rgba(123, 31, 162, 0.4);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sucursal-boton:hover {
+    background-color: #7B1FA2;
+    color: white;
+}
+
+.sucursal-boton svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}

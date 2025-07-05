@@ -10,9 +10,9 @@ const Header = () => {
     return(
         <header className="header">
             <div className="header-container">
-                <h1 className="logo">
-                    <img src={logo} alt="Logo" className="h-20" />
-                </h1>
+                    <a href="/">
+                        <img src={logo} alt="Logo" className="h-20" />
+                    </a>
 
                 <button 
                 className={`hamburger ${menuOpen ? "active" : ""}`}
@@ -26,11 +26,11 @@ const Header = () => {
 
                 <nav>
                     <ul className={`nav-menu ${menuOpen ? "open" : ""}`}>
-                        <li>Blog</li>
-                        <li>Sucursales</li>
-                        <li>Planes</li>
-                        <li>Servicios</li>
-                        <li>Contactos</li>
+                        <a href="/blog">Blog</a>
+                        <a href="/sucursales">Sucursales</a>
+                        <a href="/planes">Planes</a>
+                        <a href="/servicios">Servicios</a>
+                        <a href="/contactos">Contactos</a>
                     </ul>
                 </nav>
             </div>

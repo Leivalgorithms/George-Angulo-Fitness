@@ -8,8 +8,8 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    transform: translateY(-100px);
-    margin-bottom: -100px;
+    transform: translateY(-115px);
+    margin-bottom: -115px;
 }
 
 .img-bg {
@@ -73,50 +73,11 @@
     background-color: #b34ec5;
 }
 
-/*Sucursales */
-.sucursales {
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.sucursales-title {
-    font-size: xxx-large;
-    font-weight: bold;
-}
-
-.box-map {
-    margin: 2rem 0;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.leaflet-control-attribution {
-    display: none;
-}
-
-.sucursal-boton {
-    padding: 1rem 2rem;
-    background-color: #7B1FA2;
-    border: none;
-    border-radius: 1rem;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.sucursal-boton:hover {
-    background-color: #5e1578;
-}
-
-/*responsive*/
-
-/*Hero*/
 @media (max-width: 1024px) {
     .hero {
         flex-direction: column; /* Logo arriba, texto abajo */
         padding: 20px;
-        transform: translateY(-30px);
+        transform: translateY(-115px);
     }
 
     .logo {
@@ -149,7 +110,7 @@
 
 @media (max-width: 600px) {
     .hero {
-        transform: translateY(-20px);
+        transform: translateY(-115px);
     }
 
     .logo {
