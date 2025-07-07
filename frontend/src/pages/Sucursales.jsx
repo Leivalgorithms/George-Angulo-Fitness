@@ -1,8 +1,7 @@
-import React from 'react';
-import './css/Sucursales.css';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import SucursalCard from '../components/SucursalCard';
+import './css/Sucursales.css';
 
 const sedes = [
     {
@@ -31,7 +30,7 @@ const Sucursales = () => {
             <h1 className="sucursales-title">Nuestras Sucursales</h1>
             <div className="box-map">
                 <div className="map">
-                    <MapContainer center={[9.9281, -84.0907]} zoom={11.35} style={{ height: "400px", width: "100%" }}>
+                    <MapContainer center={[9.9281, -84.0907]} zoom={11.35} style={{ height: "400px", width: "100%", zIndex: 1 }}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
