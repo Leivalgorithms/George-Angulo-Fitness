@@ -1,7 +1,8 @@
 import React from 'react';
 import '../pages/css/Sucursales.css';
+import { Link } from 'react-router-dom';
 
-const SucursalCard = ({ nombre, telefono, horarios }) => {
+const SucursalCard = ({ nombre,provincia, telefono, horarios }) => {
     return (
         <div className="sucursal-card">
             <div className="card-header">
@@ -10,6 +11,10 @@ const SucursalCard = ({ nombre, telefono, horarios }) => {
                     Teléfono: <a href={`tel:${telefono}`}>{telefono}</a>
                 </span>
             </div>
+            <p className='card-prov'>
+                <span className="prov-bold">Provincia: </span> 
+                {provincia}
+            </p>
             <div className="card-hours">
                 {horarios.map((h, index) => (
                     <p key={index}>
@@ -18,7 +23,9 @@ const SucursalCard = ({ nombre, telefono, horarios }) => {
                 ))}
             </div>
             <button className="sucursal-boton">
-                Ver esta sede
+                <Link to={`/sucursal/${encodeURIComponent(nombre)}`}>
+                ver esta Sede
+                </Link>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
