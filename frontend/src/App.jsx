@@ -1,18 +1,18 @@
 import { Route, Routes } from "react-router-dom";
+import Footer from './components/Footer';
 import Header from './components/Header';
 import { HomePage, Sucursales } from './pages';
-import Footer from './components/Footer';
-
 
 function App() {
-
   return (
     <>
       <Header/>
-      <Routes>
-        <Route path="/" element={<HomePage />}/>
-        <Route path="/sucursales" element={<Sucursales />}/>
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/sucursales" element={<Sucursales />}/>
+        </Routes>
+      </main>
       <Footer/>
     </>
   )
