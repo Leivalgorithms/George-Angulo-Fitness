@@ -101,4 +101,149 @@
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+<<<<<<< Updated upstream
 }
+=======
+}
+
+.search-bar-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    font-weight: bold;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 1200px;
+    padding: 12px 40px 12px 16px;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+    border-color: #888;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+}
+
+.filters-container {
+    background-color: #7B1FA2;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1 1 250px;
+}
+
+.search-bar {
+    padding: 10px 40px 10px 15px;
+    border: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+}
+
+.filter-wrapper {
+    flex: 1 1 200px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .sucursales {
+        padding: 2rem 1rem;
+    }
+
+    .sucursales-title {
+        font-size: 2rem;
+    }
+
+    .filters-container {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .sucursal-card {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .search-bar {
+        font-size: 14px;
+    }
+
+    .filter-select {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sucursales-title {
+        font-size: 1.6rem;
+    }
+
+    .search-bar {
+        font-size: 13px;
+        padding: 8px 30px 8px 10px;
+    }
+
+    .filter-select {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .sucursal-boton {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-phone,
+    .card-prov,
+    .card-hours p {
+        font-size: 0.85rem;
+    }
+}
+>>>>>>> Stashed changes
