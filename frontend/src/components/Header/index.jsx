@@ -1,4 +1,3 @@
-// components/Header/index.js
 import { useEffect } from 'react';
 import '../css/Header.css';
 import DesktopNav from './DesktopNav';

@@ -3,16 +3,9 @@ import { CONTACT_INFO, MENU_ITEMS, SOCIAL_LINKS } from './constants';
 const MobileMenu = ({ menuOpen, closeMenu }) => {
   return (
     <div className={`mobile-menu-expansion ${menuOpen ? "mobile-menu-expansion--open" : ""}`}>
-      {/* Header del menú móvil con logo - el botón X está en el header principal */}
       <div className="mobile-menu-header">
-        <img 
-          src="/path/to/your/logo.png" // Reemplaza con la ruta de tu logo
-          alt="Logo" 
-          className="mobile-menu-logo" 
-        />
       </div>
 
-      {/* Contenido principal del menú */}
       <div className="mobile-menu-content">
         <nav className="mobile-nav">
           <ul className="nav-menu-mobile">
@@ -32,7 +25,6 @@ const MobileMenu = ({ menuOpen, closeMenu }) => {
             ))}
           </ul>
         </nav>
-        
         {/* Footer del menú móvil */}
         <div className="mobile-menu-footer">
           <h3 className="mobile-menu-footer-title">Síguenos</h3>
