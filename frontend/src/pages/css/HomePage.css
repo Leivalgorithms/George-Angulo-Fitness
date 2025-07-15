@@ -75,12 +75,12 @@
 
 @media (max-width: 1024px) {
     .hero {
-        flex-direction: column; /* Logo arriba, texto abajo */
+        flex-direction: column;
         padding: 20px;
         transform: translateY(-115px);
     }
 
-    .logo {
+    .hero-logo {
         max-width: 50%;
         margin-bottom: 30px;
     }
@@ -113,7 +113,7 @@
         transform: translateY(-115px);
     }
 
-    .logo {
+    .hero-logo {
         max-width: 70%;
     }
 
