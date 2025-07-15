@@ -1,0 +1,152 @@
+
+.blog-detail-page {
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+}
+
+.blog-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #7B1FA2;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button:hover {
+  background-color: #9C27B0;
+  transform: translateX(-3px);
+}
+
+.back-button::before {
+  content: "←";
+  font-size: 1.2rem;
+}
+
+.blog-detail-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  padding-top: 30px; 
+}
+
+.blog-detail-date {
+  order: 2;
+}
+
+.blog-detail-tag {
+  padding: 5px 12px;
+  margin-right: auto;
+  order: 1;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.blog-detail-tag.horario {
+  background-color: #2196F3;
+}
+
+.blog-detail-tag.promocion {
+  background-color: #FF9800;
+}
+
+.blog-detail-tag.sede {
+  background-color: #4CAF50;
+}
+
+.blog-detail-tag.comunicado {
+  background-color: #9C27B0;
+}
+
+.blog-detail-title {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #1d3557;
+  line-height: 1.3;
+}
+
+.blog-detail-content {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.blog-detail-content h3 {
+  font-size: 1.5rem;
+  color: #7B1FA2;
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+.blog-detail-content p {
+  margin-bottom: 1.2rem;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .blog-detail-page {
+    padding: 1.5rem 0;
+  }
+  
+  .blog-detail-card {
+    padding: 1.5rem;
+  }
+  
+  .blog-detail-title {
+    font-size: 1.8rem;
+  }
+  
+  .blog-detail-content {
+    font-size: 1rem;
+  }
+  
+  .blog-detail-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  
+}
+
+@media (max-width: 480px) {
+  .blog-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .blog-detail-title {
+    font-size: 1.5rem;
+  }
+  
+  .back-button {
+    margin-bottom: 1.5rem;
+    padding: 8px 16px;
+  }
+}
