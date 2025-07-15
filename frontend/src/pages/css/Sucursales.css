@@ -56,6 +56,15 @@
     font-weight: 800;
 }
 
+.prov-bold {
+    font-weight: bold;
+}
+
+.card-prov {
+    margin: 0.7rem 0;
+    font-size: 0.95rem;
+}
+
 .card-phone {
     font-size: 0.95rem;
     color: #333;
@@ -101,9 +110,6 @@
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-<<<<<<< Updated upstream
-}
-=======
 }
 
 .search-bar-container {
@@ -115,7 +121,6 @@
     position: relative;
     width: 100%;
     max-width: 1200px;
-    font-weight: bold;
 }
 
 .search-bar {
@@ -140,7 +145,21 @@
     top: 50%;
     transform: translateY(-50%);
     color: #666;
-    pointer-events: none;
+    pointer-events: none; /* No bloquea el input */
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        font-size: 14px;
+        padding: 10px 36px 10px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        font-size: 13px;
+        padding: 8px 32px 8px 12px;
+    }
 }
 
 .filters-container {
@@ -184,66 +203,3 @@
     border: none;
     font-size: 16px;
 }
-
-@media (max-width: 768px) {
-    .sucursales {
-        padding: 2rem 1rem;
-    }
-
-    .sucursales-title {
-        font-size: 2rem;
-    }
-
-    .filters-container {
-        gap: 10px;
-        padding: 15px;
-    }
-
-    .sucursal-card {
-        padding: 1rem;
-    }
-
-    .card-title {
-        font-size: 1.2rem;
-    }
-
-    .search-bar {
-        font-size: 14px;
-    }
-
-    .filter-select {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .sucursales-title {
-        font-size: 1.6rem;
-    }
-
-    .search-bar {
-        font-size: 13px;
-        padding: 8px 30px 8px 10px;
-    }
-
-    .filter-select {
-        font-size: 13px;
-        padding: 8px;
-    }
-
-    .sucursal-boton {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.8rem;
-    }
-
-    .card-title {
-        font-size: 1rem;
-    }
-
-    .card-phone,
-    .card-prov,
-    .card-hours p {
-        font-size: 0.85rem;
-    }
-}
->>>>>>> Stashed changes

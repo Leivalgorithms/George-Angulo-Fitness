@@ -1,10 +1,9 @@
 .planes-container {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 1.5rem;
     padding: 2rem;
-    background-color: #f9f9f9;
 }
 
 

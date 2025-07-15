@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './css/Footer.css';
 import logo from '../assets/logoNoBg.png';
+import { Link } from 'react-router-dom';
 import { FaInstagram, FaFacebookF } from 'react-icons/fa';
 
 const Footer = () => {
+
+    const [copied, setCopied] = useState(false);
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText('servicioalclientegaf@outlook.com')
+            .then(() => {
+                setCopied(true);
+                setTimeout(() => setCopied(false), 3000);
+            })
+            .catch((err) => {
+                console.error('Error al copiar el correo: ', err);
+            })
+    }
     return (
         <footer className="footer">
             <div className="footer-container">
@@ -11,14 +25,26 @@ const Footer = () => {
                     <a href="/">
                         <img src={logo} alt="Logo" />
                     </a>
-                    
+
                 </div>
                 <div className="footer-contact">
                     <h3>Contacto</h3>
                     <p>Costa Rica</p>
-                    <p>Teléfono:</p>
-                    <p>Email:</p>
-                    <a className='chamba' href="" target="_blank" rel="noopener noreferrer"> Trabaja con Nosotros</a>
+                    <p>Teléfono: 8585-8526</p>
+                    <p
+                        onClick={handleCopyEmail}
+                        className="email-copy"
+                        title="Haz clic para copiar"
+                        style={{ cursor: 'pointer' }}
+                    >
+                        Email: servicioalclientegaf@outlook.com
+                    </p>
+                    <Link className='chamba' to='/trabaja-con-nosotros'>
+                        Trabaja con Nosotros
+                    </Link>
+                    {copied && (
+                        <p className="copied-message">El correo se ha copiado exitosamente</p>
+                    )}
                 </div>
                 <div className="footer-social">
                     <h3>Síguenos</h3>

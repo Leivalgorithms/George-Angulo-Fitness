@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './css/SucursalDetalle.css';
 import PlanesCard from '../components/PlanesCard';
+import Carrusel from '../components/Carrusel';
 
 const SucursalDetalle = () => {
     const { nombre } = useParams();
@@ -38,18 +39,28 @@ const SucursalDetalle = () => {
         <div className="sucursal-detalle-container">
             <h1 className="sucursal-nombre">{sucursal.nombre}</h1>
 
-            <section className="sucursal-info">
-                <p><strong>Provincia:</strong> {sucursal.provincia}</p>
-                <p>
-                    <strong>Teléfono:</strong>{' '}
-                    <a href={`tel:${sucursal.telefono}`} className="sucursal-telefono">
-                        {sucursal.telefono}
-                    </a>
-                </p>
+            <section className="sucursal-layout">
+                <div className="sucursal-info-box">
+                    <p><strong>Provincia:</strong> {sucursal.provincia}</p>
+                    <p>
+                        <strong>Teléfono:</strong>{' '}
+                        <a href={`tel:${sucursal.telefono}`} className="sucursal-telefono">
+                            {sucursal.telefono}
+                        </a>
+                    </p>
+                    <p><strong>Dirección:</strong><br />{sucursal.direccion}</p>
+                </div>
+
+                <div className="sucursal-fotos">
+                    <Carrusel imagenes={sucursal.imagenes || []} />
+                </div>
             </section>
 
+
             <section className="sucursal-horarios">
-                <h2>Horarios de Atención</h2>
+                <h2 className="horarios-titulo">
+                    <span className="barra-decorativa" /> Horarios de Atención
+                </h2>
                 {(sucursal.horarios || []).map((h, i) => (
                     <article key={i} className="horario-item">
                         <strong>{h.dia}:</strong> {h.hora}

@@ -50,7 +50,7 @@ const Sucursales = () => {
             <h1 className="sucursales-title">Nuestras Sucursales</h1>
 
             <div className="box-map">
-                <MapContainer center={[9.9281, -84.0907]} zoom={11.35} style={{ height: "400px", width: "100%", zIndex: 1 }}>
+                <MapContainer center={[9.9281, -84.0907]} zoom={9} style={{ height: "400px", width: "100%", zIndex: 1 }}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -59,7 +59,12 @@ const Sucursales = () => {
                         sede.latitud && sede.longitud && (
                             <Marker key={sede.id} position={[sede.latitud, sede.longitud]}>
                                 <Popup>
-                                    <strong>{sede.nombre}</strong> <br /> {sede.provincia}
+                                    <strong>{sede.nombre}</strong> <br />
+                                    <strong>Provincia: </strong>
+                                    {sede.provincia} <br />
+                                    <p/>
+                                    <strong>Direccion: </strong>
+                                    {sede.direccion}
                                 </Popup>
                             </Marker>
                         )
@@ -109,6 +114,7 @@ const Sucursales = () => {
                 <SucursalCard
                     key={sede.id}
                     nombre={sede.nombre}
+                    provincia={sede.provincia}
                     telefono={sede.telefono}
                     horarios={sede.horarios} // esto es un array [{dia, hora}]
                     tarifas={sede.tarifas}   // si quieres mostrar tarifas, pásalas aquí
