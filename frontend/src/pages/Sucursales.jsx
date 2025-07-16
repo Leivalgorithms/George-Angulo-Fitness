@@ -1,40 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './css/Sucursales.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import SucursalCard from '../components/SucursalCard';
 
+import sucursalesData from '../assets/Data/sucursales.json';
+import mapaData from '../assets/Data/mapa.json';
+import horariosData from '../assets/Data/horarios.json';
+import tarifasData from '../assets/Data/tarifas.json';
+
 const Sucursales = () => {
     const [sedes, setSedes] = useState([]);
-    const [mapa, setMapa] = useState([]);
     const [busqueda, setBusqueda] = useState('');
     const [filtro, setFiltro] = useState('');
 
     useEffect(() => {
-        // Traer sucursales con horarios y tarifas
-        axios.get('http://localhost:3001/sucursales')
-            .then(res => setSedes(res.data))
-            .catch(console.error);
+        // Combinar datos manualmente
+        const sedesCompletas = sucursalesData.map(sucursal => {
+            const ubicacion = mapaData.find(m => m.nombre === sucursal.nombre);
+            const horariosSucursal = horariosData
+                .filter(h => h.sucursal_id === sucursal.id)
+                .map(h => ({ dia: h.dia, hora: h.hora }));
+            const tarifasSucursal = tarifasData
+                .filter(t => t.sucursal_id === sucursal.id)
+                .map(t => ({
+                    tipo: t.tipo,
+                    descripcion: t.descripcion || '',
+                    monto: t.monto,
+                    moneda: t.moneda
+                }));
 
-        // Traer coordenadas para mapa
-        axios.get('http://localhost:3001/mapa')
-            .then(res => setMapa(res.data))
-            .catch(console.error);
+            return {
+                ...sucursal,
+                latitud: ubicacion?.lat || 0,
+                longitud: ubicacion?.lng || 0,
+                horarios: horariosSucursal,
+                tarifas: tarifasSucursal
+            };
+        });
+
+        setSedes(sedesCompletas);
     }, []);
 
-    // Combinar datos sucursales con coordenadas del mapa
-    const sedesConUbicacion = sedes.map(sede => {
-        const ubicacion = mapa.find(m => m.nombre === sede.nombre);
-        return {
-            ...sede,
-            latitud: ubicacion?.lat || 0,
-            longitud: ubicacion?.lng || 0,
-        };
-    });
-
-    // Filtrado por búsqueda y filtro de provincia
-    const sedesFiltradas = sedesConUbicacion.filter(sede => {
+    const sedesFiltradas = sedes.filter(sede => {
         const matchBusqueda = (
             sede.provincia.toLowerCase().includes(busqueda.toLowerCase()) ||
             sede.nombre.toLowerCase().includes(busqueda.toLowerCase())
@@ -43,7 +51,7 @@ const Sucursales = () => {
         return matchBusqueda && matchFiltro;
     });
 
-    const provinciasUnicas = [...new Set(sedesConUbicacion.map(s => s.provincia))];
+    const provinciasUnicas = [...new Set(sedes.map(s => s.provincia))];
 
     return (
         <div className="sucursales">
@@ -59,12 +67,10 @@ const Sucursales = () => {
                         sede.latitud && sede.longitud && (
                             <Marker key={sede.id} position={[sede.latitud, sede.longitud]}>
                                 <Popup>
-                                    <strong>{sede.nombre}</strong> <br />
-                                    <strong>Provincia: </strong>
-                                    {sede.provincia} <br />
-                                    <p/>
-                                    <strong>Direccion: </strong>
-                                    {sede.direccion}
+                                    <strong>{sede.nombre}</strong><br />
+                                    <strong>Provincia: </strong>{sede.provincia}<br />
+                                    <p />
+                                    <strong>Dirección: </strong>{sede.direccion}
                                 </Popup>
                             </Marker>
                         )
@@ -109,15 +115,14 @@ const Sucursales = () => {
                 </div>
             </div>
 
-            {/* Mostrar cards de sucursales con horarios */}
             {sedesFiltradas.map(sede => (
                 <SucursalCard
                     key={sede.id}
                     nombre={sede.nombre}
                     provincia={sede.provincia}
                     telefono={sede.telefono}
-                    horarios={sede.horarios} // esto es un array [{dia, hora}]
-                    tarifas={sede.tarifas}   // si quieres mostrar tarifas, pásalas aquí
+                    horarios={sede.horarios}
+                    tarifas={sede.tarifas}
                 />
             ))}
         </div>

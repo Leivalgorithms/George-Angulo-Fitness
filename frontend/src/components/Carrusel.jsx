@@ -7,7 +7,7 @@ const Carrusel = ({ imagenes = [] }) => {
     useEffect(() => {
         const intervalo = setInterval(() => {
             setIndice((prev) => (prev + 1) % imagenes.length);
-        }, 3000);
+        }, 5000);
         return () => clearInterval(intervalo);
     }, [imagenes.length]);
 
@@ -17,7 +17,24 @@ const Carrusel = ({ imagenes = [] }) => {
 
     return (
         <div className="carrusel">
-            <img src={imagenes[indice]} alt={`Imagen ${indice + 1}`} className="carrusel-imagen" />
+            <div className="carrusel-imagen-wrapper">
+                {imagenes.map((src, i) => (
+                    <img
+                        key={i}
+                        src={src}
+                        alt={`Imagen ${i + 1}`}
+                        className={`carrusel-imagen ${i === indice ? 'activa' : ''}`}
+                    />
+                ))}
+            </div>
+            <div className="carrusel-indicadores">
+                {imagenes.map((_, i) => (
+                    <span
+                        key={i}
+                        className={`indicador ${i === indice ? 'activo' : ''}`}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

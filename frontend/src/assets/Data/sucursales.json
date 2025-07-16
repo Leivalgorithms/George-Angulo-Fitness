@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "nombre": "Barva de Heredia",
+        "provincia": "Heredia",
+        "telefono": "8646-8631",
+        "direccion": "Santa Lucía, Barva, Heredia. Frente al antiguo restaurante \"Los Tesoros del Inca\".",
+        "imagenes": [
+            "/Gym.jpg",
+            "/logo.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Belén de Heredia",
+        "provincia": "Heredia",
+        "telefono": "8945-8631",
+        "direccion": "La Rivera, Belén, Heredia. Centro Comercial La Rivera, local esquinero.",
+        "imagenes": [
+            "/assets/Gym.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Jacó",
+        "provincia": "Puntarenas",
+        "telefono": "2294-7912",
+        "direccion": "Avenida Pastor Díaz, Jacó, Garabito, Puntarenas. 300 metros este de Plaza Coral.",
+        "imagenes": [
+            "/assets/Gym.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Herradura",
+        "provincia": "Puntarenas",
+        "telefono": "7069-9852",
+        "direccion": "Herradura, Jacó, Garabito, Puntarenas. Frente a Condominios Arenas.",
+        "imagenes": [
+            "/assets/Gym.jpg"
+        ]
+    }
+]
