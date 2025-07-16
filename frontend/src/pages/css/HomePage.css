@@ -1,13 +1,18 @@
-/*Hero */
+.home {
+    width: 100%;
+    max-height: 85vh;
+    position: relative;
+}
+
+/* Hero Container */
 .hero {
-    background-size: cover;
-    background-position: center;
+    position: relative;
     height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 1;
+    overflow: hidden;
     transform: translateY(-115px);
     margin-bottom: -115px;
 }
@@ -19,118 +24,362 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: -2;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
 }
 
-.hero-logo {
-    max-width: 35%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.hero-middle {
-    padding: 40px;
-    border-radius: 25px;
-    text-align: center;
-    color: white;
-    max-width: 600px;
+/* Main Container */
+.hero-container {
+    max-width: 1400px;
     width: 100%;
-}
-
-.hero-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.hero-p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.5;
-}
-
-.hero-buttons {
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+}
+
+/* Brand Section */
+.hero-brand {
+    flex-shrink: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.hero-logo {
+    width: 450px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Text Content */
+.hero-text {
+    flex: 1;
+    max-width: 700px;
+}
+
+.hero-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.hero-title--highlight {
+    color: #FFD700;
+    transition: all 0.3s ease;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+/* Action Buttons */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 .hero-button {
-    padding: 15px 30px;
-    background-color: #7B1FA2;
-    border: none;
-    border-radius: 50px;
-    color: white;
+    position: relative;
+    padding: 1rem 2rem;
     font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 200px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 180px;
+    text-align: center;
+    overflow: hidden;
 }
 
-.hero-button:hover {
-    background-color: #b34ec5;
+.hero-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
+.hero-button:hover::before {
+    left: 100%;
+}
+
+/* Primary Button */
+.hero-button--primary {
+    background: #7B1FA2;
+    color: white;
+    border-color: #7B1FA2;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.4);
+}
+
+.hero-button--primary:hover {
+    background: #9C27B0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 31, 162, 0.6);
+}
+
+/* Secondary Button */
+.hero-button--secondary {
+    background: transparent;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.hero-button--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Features Section */
+.hero-features {
+    display: flex;
+    gap: 1rem;
+    justify-content: left;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-top: 1rem;
+}
+
+.feature-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Tablets */
 @media (max-width: 1024px) {
-    .hero {
+
+    .home {
+        max-height: 85vh;
+    }
+
+    .hero-container {
+        padding: 0 1.5rem;
+        gap: 2rem;
+    }
+
+    .hero-content {
         flex-direction: column;
-        padding: 20px;
-        transform: translateY(-115px);
+        text-align: center;
+        gap: 0.5rem;
     }
 
     .hero-logo {
-        max-width: 50%;
-        margin-bottom: 30px;
-    }
-
-    .hero-middle {
-        padding: 20px;
+        width: 250px;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
     }
 
-    .hero-p {
+    .hero-description {
         font-size: 1rem;
+        margin-bottom: 2rem;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
+    .hero-actions {
+        justify-content: center;
     }
 
-    .hero-button {
-        width: 100%;
-        max-width: 250px;
+    .hero-features {
+        justify-content: center;
+    }
+
+    .feature-card {
+        min-width: 280px;
     }
 }
 
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 768px) {
+
+    .home {
+        max-height: 100vh;
+    }
+
     .hero {
-        transform: translateY(-115px);
+        height: 100vh;
+        padding: 1rem 0;
+    }
+
+    .hero-container {
+        padding: 0 1rem;
+        gap: 1.5rem;
+        justify-content: center;
     }
 
     .hero-logo {
-        max-width: 70%;
+        width: 200px;
     }
 
     .hero-title {
-        font-size: 1.5rem;
+        font-size: clamp(1.3rem, 6vw, 1.8rem);
+        margin-bottom: 1rem;
     }
 
-    .hero-p {
-        font-size: 0.95rem;
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
 
-    .hero-middle {
-        padding: 15px;
+    .hero-actions {
+        gap: 0.75rem;
     }
 
     .hero-button {
-        padding: 12px 20px;
-        font-size: 0.95rem;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 160px;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+
+    .feature-card {
+        min-width: 120px;
+        max-width: 150px;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .feature-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+
+    .feature-title {
+        font-size: 0.65rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-container {
+        padding: 0 0.75rem;
+    }
+
+    .hero-logo {
+        width: 180px;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
+    }
+
+    .hero-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+        min-width: 140px;
+    }
+
+    .feature-card {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    .hero-logo {
+        width: 450px;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+    }
+
+    .hero-button {
+        padding: 1.125rem 2.5rem;
+        font-size: 1.1rem;
     }
 }
