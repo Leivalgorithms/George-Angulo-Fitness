@@ -6,3 +6,12 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[identity]
+  # Redirecciones después de acciones de Netlify Identity
+  confirmation_url = "https://georgeangulofitness.netlify.app/confirm"
+  invitation_url = "https://georgeangulofitness.netlify.app/invite"
+  password_reset_url = "https://georgeangulofitness.netlify.app/reset-password"
+
+[[plugins]]
+  package = "@netlify/plugin-inline-functions-env"
