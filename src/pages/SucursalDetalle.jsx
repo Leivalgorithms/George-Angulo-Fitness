@@ -9,12 +9,19 @@ import sucursalesData from '../assets/Data/sucursales.json';
 import horariosData from '../assets/Data/horarios.json';
 import tarifasData from '../assets/Data/tarifas.json';
 
-const imagenesDisponibles = import.meta.glob('../assets/*.jpg', { eager: true });
+const imagenesDisponibles = import.meta.glob('../assets/sucursales/**/*.jpeg', { eager: true });
 
 const obtenerImagen = (ruta) => {
-    const clave = `../assets${ruta}`;
-    return imagenesDisponibles[clave]?.default || '';
+    const extensiones = ['.jpeg', '.jpg'];
+    for (let ext of extensiones) {
+        const clave = `../assets/sucursales${ruta}${ext}`;
+        if (imagenesDisponibles[clave]) {
+            return imagenesDisponibles[clave].default;
+        }
+    }
+    return '';
 };
+
 
 const SucursalDetalle = () => {
     const { nombre } = useParams();

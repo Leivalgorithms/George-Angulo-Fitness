@@ -1,0 +1,62 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Autor", name: "author", widget: "string" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  - name: "sucursales"
+    label: "Sucursales"
+    folder: "src/content/sucursales"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Dirección", name: "address", widget: "string" }
+      - { label: "Teléfono", name: "phone", widget: "string" }
+      - { label: "Correo Electrónico", name: "email", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "markdown" }
+
+  - name: "planes"
+    label: "Planes"
+    folder: "src/content/planes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre del Plan", name: "name", widget: "string" }
+      - { label: "Precio", name: "price", widget: "string" }
+      - { label: "Duración", name: "duration", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "markdown" }
+
+  - name: "servicios"
+    label: "Servicios"
+    folder: "src/content/servicios"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre del Servicio", name: "name", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "markdown" }
+      - { label: "Imagen", name: "image", widget: "image" }
+
+  - name: "contactos"
+    label: "Contactos"
+    folder: "src/content/contactos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Teléfono", name: "phone", widget: "string" }
+      - { label: "Correo Electrónico", name: "email", widget: "string" }
+      - { label: "Mensaje", name: "message", widget: "text" }
