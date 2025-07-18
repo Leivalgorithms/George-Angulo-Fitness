@@ -12,6 +12,3 @@
   confirmation_url = "https://georgeangulofitness.netlify.app/confirm"
   invitation_url = "https://georgeangulofitness.netlify.app/invite"
   password_reset_url = "https://georgeangulofitness.netlify.app/reset-password"
-
-[[plugins]]
-  package = "@netlify/plugin-inline-functions-env"
