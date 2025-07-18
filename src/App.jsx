@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from './components/Header';
 import { HomePage, Sucursales, SucursalDetalle, TrabajaConNosotrso, Contactanos } from './pages';
 import Footer from './components/Footer';
-import ConfirmPage from './pages/auth/confirm';
+import ConfirmPage from './pages/confirm';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <>
       <Header/>
       <Routes>
-        <Route path="/auth/confirm" element={<ConfirmPage />} />
+        <Route path="/pages/confirm" element={<ConfirmPage />} />
         <Route path="/" element={<HomePage />}/>
         <Route path="/sucursales" element={<Sucursales />}/>
         <Route path="/sucursales/:nombre" element={<SucursalDetalle />} />
