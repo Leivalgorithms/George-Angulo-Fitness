@@ -14,7 +14,7 @@ const HomePage = () => {
     
     const handleNavigateToAbout = () => {
         navigate('/sobre-nosotros');
-    };
+    };23
 
     const features = [
         {
