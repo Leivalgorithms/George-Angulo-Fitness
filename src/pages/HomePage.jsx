@@ -1,56 +1,106 @@
-import React from "react";
-import './css/HomePage.css';
-import gym from '../assets/Gym.jpg';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { FaDumbbell, FaHeart, FaUsers } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import gym from '../assets/Gym.png';
 import logo from '../assets/logoNoBg.png';
+import './css/HomePage.css';
 
 const HomePage = () => {
+    const navigate = useNavigate();
+    
+    const handleNavigateToSucursales = () => {
+        navigate('/sucursales');
+    };
+    
+    const handleNavigateToAbout = () => {
+        navigate('/sobre-nosotros');
+    };23
+
+    const features = [
+        {
+            icon: FaUsers,
+            title: "Instructores Capacitados",
+        },
+        {
+            icon: FaDumbbell,
+            title: "Equipo Tecnológico", 
+        },
+        {
+            icon: FaHeart,
+            title: "Bienestar Integral",
+        }
+    ];
+
     return (        
         <div className="home">
-            {/*Hero*/}
-            <div className="hero">
-                <img className="img-bg" src={gym} alt="" />
-                <img className="hero-logo" src={logo} alt="Logo" />
-                <div className="hero-middle">
-                    <h1 className="hero-title">ENTRENA CON PROPOSITO, TRANSFORMA TU VIDA.</h1>
-                    <p className="hero-p">Somos un centro de acondicionamiento fisico, donde combinas equipo tecnologico, instructores capacitados, ambientes agradables, todo en un mismo lugar, contamos con terapeuta fisico y nutricionista.</p>
-                    <div className="hero-buttons">
-                    <button className="hero-button">Ver planes</button>
-                    <button className="hero-button">Sobre nosotros</button>
-                    </div>
-                </div>
-            </div>
-
-            {/*Sucursales
-            <div className="sucursales">
-                <h1 className="sucursales-title">Nuestras Sucursales</h1>
-                <div className="box-map">
-                    <div className="map">
-                        <MapContainer center={[9.9281, -84.0907]} zoom={11.35} style={{ height: "400px", width: "100%" }}>
-                            <TileLayer
-                                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            <section className="hero">
+                <img 
+                    className="img-bg" 
+                    src={gym} 
+                    alt="Gimnasio George Angulo Fitness" 
+                />                
+                <div className="hero-container">
+                    <div className="hero-content">
+                        <div className="hero-brand">
+                            <img 
+                                className="hero-logo" 
+                                src={logo} 
+                                alt="George Angulo Fitness Logo" 
                             />
-                            <Marker position={[9.9281, -84.0907]}>
-                                <Popup>
-                                    Sucursal Central <br /> San José.
-                                </Popup>
-                            </Marker>
-                        </MapContainer>
+                        </div>
+                        
+                        <div className="hero-text">
+                            <h1 className="hero-title">
+                                ENTRENA CON PROPÓSITO,{' '}
+                                <span className="hero-title--highlight">
+                                    TRANSFORMA TU VIDA
+                                </span>
+                            </h1>
+                            
+                            <p className="hero-description">
+                                Somos un centro de acondicionamiento físico donde combinas equipo tecnológico, 
+                                instructores capacitados y ambientes agradables, todo en un mismo lugar. Contamos 
+                                con terapeuta físico y nutricionista.
+                            </p>
+                            
+                            <div className="hero-actions">
+                                <button 
+                                    className="hero-button hero-button--primary" 
+                                    onClick={handleNavigateToSucursales}
+                                    aria-label="Ver todas nuestras sucursales"
+                                >
+                                    Ver Sucursales
+                                </button>
+                                <button 
+                                    className="hero-button hero-button--secondary" 
+                                    onClick={handleNavigateToAbout}
+                                    aria-label="Conocer más sobre nosotros"
+                                >
+                                    Sobre Nosotros
+                                </button>
+                            </div>
+                        
+                        {/**
+                            <div className="hero-features">
+                                {features.map((feature, index) => {
+                                    const IconComponent = feature.icon;
+                                    return (
+                                        <div key={index} className="feature-card">
+                                            <div className="feature-icon">
+                                                <IconComponent />
+                                            </div>
+                                            <div className="feature-content">
+                                                <h3 className="feature-title">{feature.title}</h3>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                             */}
+                        </div>
                     </div>
                 </div>
-                <button className="sucursal-boton">
-                    <h1>Encuentra La Sucursal Mas Cercana a Ti!</h1>
-                </button>
-            </div>
-            */}
-
-            {/*Planes
-            <div className="planes">
-                
-            </div>
-            */}
+            </section>
         </div>
     );
 };
