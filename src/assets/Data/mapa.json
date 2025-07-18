@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nombre": "Barva de Heredia",
+        "descripcion": "Heredia, Barva, Santa Lucía, Antigua Restaurante Los Tesoros Del Inca",
+        "lat": 10.0158114,
+        "lng": -84.1225307,
+        "imagen_url": ""
+    },
+    {
+        "id": 2,
+        "nombre": "Belén de Heredia",
+        "descripcion": "Heredia, La Rivera de Belén, Centro comercial la Rivera, local esquinero",
+        "lat": 9.9840894,
+        "lng": -84.1904656,
+        "imagen_url": [""]
+    },
+    {
+        "id": 3,
+        "nombre": "Jacó",
+        "descripcion": "Puntarenas, Garabito, Jacó, Avenida Pastor, 300 metros este de Plaza Coral",
+        "lat": 9.616641,
+        "lng": -84.6301041,
+        "imagen_url": ""
+    },
+    {
+        "id": 4,
+        "nombre": "Herradura",
+        "descripcion": "Puntarenas, Garabito, Jacó, Herradura, frente a condominios Arenas",
+        "lat": 9.6651811,
+        "lng": -84.6356573,
+        "imagen_url": ""
+    }
+]
