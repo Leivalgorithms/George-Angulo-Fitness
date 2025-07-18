@@ -148,20 +148,6 @@
     pointer-events: none; /* No bloquea el input */
 }
 
-@media (max-width: 768px) {
-    .search-bar {
-        font-size: 14px;
-        padding: 10px 36px 10px 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .search-bar {
-        font-size: 13px;
-        padding: 8px 32px 8px 12px;
-    }
-}
-
 .filters-container {
     background-color: #7B1FA2;
     padding: 20px;
@@ -202,4 +188,71 @@
     border-radius: 8px;
     border: none;
     font-size: 16px;
+}
+
+.popup-carrusel {
+    position: relative;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 240px;
+    max-height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup-carrusel img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+
+.popup-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.popup-flecha:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.popup-flecha.izquierda {
+    left: 5px;
+}
+
+.popup-flecha.derecha {
+    right: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .search-bar {
+        font-size: 14px;
+        padding: 10px 36px 10px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        font-size: 13px;
+        padding: 8px 32px 8px 12px;
+    }
 }
