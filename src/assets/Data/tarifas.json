@@ -1,0 +1,178 @@
+[
+    {
+        "id": 1,
+        "sucursal_id": 1,
+        "tipo": "mensualidad_regular",
+        "descripcion": "",
+        "monto": 23000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 2,
+        "sucursal_id": 1,
+        "tipo": "trimestre_cliente_activo_regular",
+        "descripcion": "",
+        "monto": 55000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 3,
+        "sucursal_id": 1,
+        "tipo": "trimestre_menor_edad",
+        "descripcion": "",
+        "monto": 30000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 4,
+        "sucursal_id": 1,
+        "tipo": "sesion",
+        "descripcion": "",
+        "monto": 3500.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 5,
+        "sucursal_id": 2,
+        "tipo": "mensualidad_regular",
+        "descripcion": "",
+        "monto": 23000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 6,
+        "sucursal_id": 2,
+        "tipo": "trimestre_cliente_activo_regular",
+        "descripcion": "",
+        "monto": 55000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 7,
+        "sucursal_id": 2,
+        "tipo": "trimestre_menor_edad",
+        "descripcion": "",
+        "monto": 30000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 8,
+        "sucursal_id": 2,
+        "tipo": "sesion",
+        "descripcion": "",
+        "monto": 3500.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 9,
+        "sucursal_id": 3,
+        "tipo": "mensualidad_menor_edad",
+        "descripcion": "",
+        "monto": 15000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 10,
+        "sucursal_id": 3,
+        "tipo": "mensualidad_regular",
+        "descripcion": "",
+        "monto": 20000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 11,
+        "sucursal_id": 3,
+        "tipo": "mensualidad_vip_usuario_nacional",
+        "descripcion": "acceso sede Jacó y Herradura",
+        "monto": 23000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 12,
+        "sucursal_id": 3,
+        "tipo": "mensualidad_vip_usuario_extranjero",
+        "descripcion": "acceso sede Jacó y Herradura",
+        "monto": 50.00,
+        "moneda": "USD"
+    },
+    {
+        "id": 13,
+        "sucursal_id": 3,
+        "tipo": "trimestre_cliente_nuevo_regular",
+        "descripcion": "",
+        "monto": 55000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 14,
+        "sucursal_id": 3,
+        "tipo": "trimestre_menor_edad",
+        "descripcion": "",
+        "monto": 30000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 15,
+        "sucursal_id": 3,
+        "tipo": "sesion",
+        "descripcion": "",
+        "monto": 4000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 16,
+        "sucursal_id": 4,
+        "tipo": "mensualidad_menor_edad",
+        "descripcion": "",
+        "monto": 15000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 17,
+        "sucursal_id": 4,
+        "tipo": "mensualidad_regular",
+        "descripcion": "",
+        "monto": 20000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 18,
+        "sucursal_id": 4,
+        "tipo": "mensualidad_vip_usuario_nacional",
+        "descripcion": "acceso sede Jacó y Herradura",
+        "monto": 23000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 19,
+        "sucursal_id": 4,
+        "tipo": "mensualidad_vip_usuario_extranjero",
+        "descripcion": "acceso sede Jacó y Herradura",
+        "monto": 50.00,
+        "moneda": "USD"
+    },
+    {
+        "id": 20,
+        "sucursal_id": 4,
+        "tipo": "trimestre_cliente_nuevo_regular",
+        "descripcion": "",
+        "monto": 55000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 21,
+        "sucursal_id": 4,
+        "tipo": "trimestre_menor_edad",
+        "descripcion": "",
+        "monto": 30000.00,
+        "moneda": "CRC"
+    },
+    {
+        "id": 22,
+        "sucursal_id": 4,
+        "tipo": "sesion",
+        "descripcion": "",
+        "monto": 4000.00,
+        "moneda": "CRC"
+    }
+]

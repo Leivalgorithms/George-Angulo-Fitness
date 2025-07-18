@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "sucursal_id": 1,
+        "dia": "Lunes a Viernes",
+        "hora": "5:00am a 10:00 pm"
+    },
+    {
+        "id": 2,
+        "sucursal_id": 1,
+        "dia": "Sábados y Domingos",
+        "hora": "8:00 am a 5:00 pm"
+    },
+    {
+        "id": 3,
+        "sucursal_id": 2,
+        "dia": "Lunes a Viernes",
+        "hora": "5:00am a 9:30 pm"
+    },
+    {
+        "id": 4,
+        "sucursal_id": 2,
+        "dia": "Sábados y Domingos",
+        "hora": "8:00 am a 5:00 pm"
+    },
+    {
+        "id": 5,
+        "sucursal_id": 3,
+        "dia": "Lunes a Viernes",
+        "hora": "5:00am a 10:00 pm"
+    },
+    {
+        "id": 6,
+        "sucursal_id": 3,
+        "dia": "Sábados y Domingos",
+        "hora": "9:00 am a 6:00 pm"
+    },
+    {
+        "id": 7,
+        "sucursal_id": 4,
+        "dia": "Lunes a Viernes",
+        "hora": "5:00am a 10:00 pm"
+    },
+    {
+        "id": 8,
+        "sucursal_id": 4,
+        "dia": "Sábados y Domingos",
+        "hora": "9:00 am a 6:00 pm"
+    }
+]

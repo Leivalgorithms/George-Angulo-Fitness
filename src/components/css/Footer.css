@@ -56,6 +56,18 @@
     color: #aaa;
 }
 
+.email-copy:hover {
+    color: #ff6b6b;
+    text-decoration: underline;
+}
+
+.copied-message {
+    margin-top: 10px;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 14px;
+}
+
 @media (min-width: 768px) {
     .footer-container {
         flex-direction: row;
