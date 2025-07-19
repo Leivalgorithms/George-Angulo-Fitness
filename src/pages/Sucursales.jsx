@@ -1,14 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './css/Sucursales.css';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
 import 'leaflet/dist/leaflet.css';
 import SucursalCard from '../components/SucursalCard';
+
+import L from 'leaflet';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import sucursalesData from '../assets/Data/sucursales.json';
 import mapaData from '../assets/Data/mapa.json';
 import horariosData from '../assets/Data/horarios.json';
 import tarifasData from '../assets/Data/tarifas.json';
 
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
 
 const imagenesDisponibles = import.meta.glob('../assets/sucursales/**/*.jpeg', { eager: true });
 
