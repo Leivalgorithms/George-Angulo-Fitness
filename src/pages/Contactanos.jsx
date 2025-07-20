@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./css/Contactanos.css";
+import emailjs from '@emailjs/browser';
 
 const Contactanos = () => {
     const [formData, setFormData] = useState({
@@ -21,21 +22,33 @@ const Contactanos = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const { nombre, apellido, telefono, asunto, mensaje } = formData;
 
+        // Validar que todos los campos estén completos (puedes ajustar según qué campos sean obligatorios)
         if (!nombre || !apellido || !telefono || !asunto || !mensaje) {
             setFeedback({ tipo: "error", mensaje: "Por favor completa todos los campos." });
-        } else {
-            setFeedback({ tipo: "success", mensaje: "¡Formulario enviado exitosamente!" });
-            setFormData({
-                nombre: "",
-                apellido: "",
-                telefono: "",
-                asunto: "",
-                mensaje: ""
-            });
+            return;
         }
+
+        // Enviar el formulario usando emailjs
+        emailjs.sendForm('service_2g38xta', 'template_5gomgum', e.target, 'xA96CzGZbjiD1oHn1')
+            .then(() => {
+                setFeedback({ tipo: "success", mensaje: "El formulario fue enviado exitosamente!" });
+                setFormData({
+                    nombre: "",
+                    apellido: "",
+                    telefono: "",
+                    asunto: "",
+                    mensaje: "",
+                });
+            })
+            .catch(() => {
+                setFeedback({ tipo: "error", mensaje: "Hubo un error al enviar el formulario." });
+            });
     };
+
+
 
     useEffect(() => {
         if (feedback) {
