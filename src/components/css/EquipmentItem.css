@@ -1,0 +1,53 @@
+/* ==========================================================================
+   EQUIPMENT ITEM COMPONENT
+   ========================================================================== */
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.equipment-item {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid #7B1FA2;
+}
+
+.equipment-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(123, 31, 162, 0.15);
+}
+
+.equipment-text {
+    color: #2c3e50;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Tablets (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .equipment-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Large (481px - 767px) */
+@media (min-width: 250px) and (max-width: 767px) {
+    .equipment-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+}
