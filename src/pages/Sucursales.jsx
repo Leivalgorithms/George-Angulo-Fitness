@@ -1,21 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import './css/Sucursales.css';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
 import 'leaflet/dist/leaflet.css';
 import SucursalCard from '../components/SucursalCard';
+
+import L from 'leaflet';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import sucursalesData from '../assets/Data/sucursales.json';
 import mapaData from '../assets/Data/mapa.json';
 import horariosData from '../assets/Data/horarios.json';
 import tarifasData from '../assets/Data/tarifas.json';
 
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
+
+const imagenesDisponibles = import.meta.glob('../assets/sucursales/**/*.jpeg', { eager: true });
+
+const obtenerImagen = (rutaRelativaSinExtension) => {
+    const extensiones = ['.jpeg', '.jpg'];
+    for (let ext of extensiones) {
+        const clave = `../assets/sucursales${rutaRelativaSinExtension}${ext}`;
+        if (imagenesDisponibles[clave]) {
+            return imagenesDisponibles[clave].default;
+        }
+    }
+    return '';
+};
+
 const Sucursales = () => {
     const [sedes, setSedes] = useState([]);
     const [busqueda, setBusqueda] = useState('');
     const [filtro, setFiltro] = useState('');
+    const [imagenIndex, setImagenIndex] = useState({});
 
     useEffect(() => {
-        // Combinar datos manualmente
         const sedesCompletas = sucursalesData.map(sucursal => {
             const ubicacion = mapaData.find(m => m.nombre === sucursal.nombre);
             const horariosSucursal = horariosData
@@ -67,11 +94,55 @@ const Sucursales = () => {
                         sede.latitud && sede.longitud && (
                             <Marker key={sede.id} position={[sede.latitud, sede.longitud]}>
                                 <Popup>
-                                    <strong>{sede.nombre}</strong><br />
-                                    <strong>Provincia: </strong>{sede.provincia}<br />
-                                    <p />
-                                    <strong>Dirección: </strong>{sede.direccion}
+                                    <div style={{ maxWidth: '300px' }}>
+                                        <strong>{sede.nombre}</strong><br />
+                                        <strong>Provincia: </strong>{sede.provincia}<br />
+                                        <strong>Dirección: </strong>{sede.direccion}<br />
+
+                                        {sede.imagenes?.length > 0 && (
+                                            <div className="popup-carrusel">
+                                                <img
+                                                    src={obtenerImagen(
+                                                        sede.imagenes[imagenIndex[sede.id] || 0]?.replace('.jpeg', '').replace('.jpg', '')
+                                                    )}
+                                                    alt={`Imagen de ${sede.nombre}`}
+                                                />
+
+                                                {sede.imagenes.length > 1 && (
+                                                    <>
+                                                        <button
+                                                            className="popup-flecha izquierda"
+                                                            onClick={() =>
+                                                                setImagenIndex(prev => ({
+                                                                    ...prev,
+                                                                    [sede.id]: (prev[sede.id] ?? 0) === 0
+                                                                        ? sede.imagenes.length - 1
+                                                                        : (prev[sede.id] ?? 0) - 1
+                                                                }))
+                                                            }
+                                                        >
+                                                            ‹
+                                                        </button>
+                                                        <button
+                                                            className="popup-flecha derecha"
+                                                            onClick={() =>
+                                                                setImagenIndex(prev => ({
+                                                                    ...prev,
+                                                                    [sede.id]: (prev[sede.id] ?? 0) === sede.imagenes.length - 1
+                                                                        ? 0
+                                                                        : (prev[sede.id] ?? 0) + 1
+                                                                }))
+                                                            }
+                                                        >
+                                                            ›
+                                                        </button>
+                                                    </>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
                                 </Popup>
+
                             </Marker>
                         )
                     ))}

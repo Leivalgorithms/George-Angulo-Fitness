@@ -8,6 +8,7 @@
     max-width: 1200px;
     margin: 0 auto;
     gap: 2rem;
+    margin-top: calc(85.5px + 3rem);
 }
 
 .contactanos-left {
@@ -126,10 +127,10 @@
 
 .floating-feedback {
     position: fixed;
-    top: 20px;
+    top: 110px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999;
+    z-index: 10;
     padding: 1rem 2rem;
     border-radius: 12px;
     font-weight: 600;
