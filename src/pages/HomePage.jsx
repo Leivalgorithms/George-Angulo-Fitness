@@ -80,24 +80,6 @@ const HomePage = () => {
                                     Contactar
                                 </CTAButton>
                             </div>
-                        
-                        {/**
-                            <div className="hero-features">
-                                {features.map((feature, index) => {
-                                    const IconComponent = feature.icon;
-                                    return (
-                                        <div key={index} className="feature-card">
-                                            <div className="feature-icon">
-                                                <IconComponent />
-                                            </div>
-                                            <div className="feature-content">
-                                                <h3 className="feature-title">{feature.title}</h3>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                             */}
                         </div>
                     </div>
                 </div>
