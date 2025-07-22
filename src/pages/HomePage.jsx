@@ -3,6 +3,7 @@ import { FaDumbbell, FaHeart, FaUsers } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import gym from '../assets/Gym.png';
 import logo from '../assets/logoNoBg.png';
+import CTAButton from '../components/CTAButton';
 import './css/HomePage.css';
 
 const HomePage = () => {
@@ -13,8 +14,8 @@ const HomePage = () => {
     };
     
     const handleNavigateToAbout = () => {
-        navigate('/sobre-nosotros');
-    };23
+        navigate('/contactos');
+    };
 
     const features = [
         {
@@ -64,20 +65,20 @@ const HomePage = () => {
                             </p>
                             
                             <div className="hero-actions">
-                                <button 
-                                    className="hero-button hero-button--primary" 
+                                <CTAButton 
+                                    variant="primary"
                                     onClick={handleNavigateToSucursales}
-                                    aria-label="Ver todas nuestras sucursales"
+                                    ariaLabel="Ver todas nuestras sucursales"
                                 >
                                     Ver Sucursales
-                                </button>
-                                <button 
-                                    className="hero-button hero-button--secondary" 
+                                </CTAButton>
+                                <CTAButton 
+                                    variant="secondary"
                                     onClick={handleNavigateToAbout}
-                                    aria-label="Conocer más sobre nosotros"
+                                    ariaLabel="Conocer más sobre nosotros"
                                 >
-                                    Sobre Nosotros
-                                </button>
+                                    Contactar
+                                </CTAButton>
                             </div>
                         </div>
                     </div>
