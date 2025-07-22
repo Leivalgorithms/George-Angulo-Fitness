@@ -179,7 +179,7 @@
 .service-img {
     width: 100%;
     object-fit: contain;
-    height: auto;
+    height: 550px;
     transition: transform 0.3s ease;
     display: block;
     border-radius: 20px;

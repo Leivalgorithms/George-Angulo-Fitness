@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './css/SucursalDetalle.css';
-import PlanesCard from '../components/PlanesCard';
 import Carrusel from '../components/Carrusel';
+import PlanesCard from '../components/PlanesCard';
+import './css/SucursalDetalle.css';
 
 // Importar datos locales
-import sucursalesData from '../assets/Data/sucursales.json';
 import horariosData from '../assets/Data/horarios.json';
+import sucursalesData from '../assets/Data/sucursales.json';
 import tarifasData from '../assets/Data/tarifas.json';
 
 const imagenesDisponibles = import.meta.glob('../assets/sucursales/**/*.jpeg', { eager: true });
@@ -21,7 +21,6 @@ const obtenerImagen = (ruta) => {
     }
     return '';
 };
-
 
 const SucursalDetalle = () => {
     const { nombre } = useParams();
@@ -44,7 +43,8 @@ const SucursalDetalle = () => {
                         tipo: t.tipo,
                         descripcion: t.descripcion || '',
                         monto: t.monto,
-                        moneda: t.moneda
+                        moneda: t.moneda,
+                        destacado: t.destacado || false
                     }));
 
                 const imagenesProcesadas = (suc.imagenes || []).map(obtenerImagen);
@@ -65,15 +65,55 @@ const SucursalDetalle = () => {
         return () => clearTimeout(timeout);
     }, [nombre]);
 
+    // Función para obtener beneficios según el tipo de plan
+    const obtenerBeneficios = (tipo, descripcion) => {
+        const beneficios = [];
+        
+        if (tipo.includes('vip')) {
+            beneficios.push('Acceso a múltiples sedes');
+            if (descripcion) beneficios.push(descripcion);
+            beneficios.push('Prioridad en reservas');
+            beneficios.push('Descuentos en productos');
+        } else if (tipo.includes('trimestre')) {
+            beneficios.push('Ahorro vs mensualidad');
+            beneficios.push('3 meses de acceso');
+            if (tipo.includes('menor_edad')) {
+                beneficios.push('Tarifa especial menores');
+            }
+        } else if (tipo.includes('menor_edad')) {
+            beneficios.push('Tarifa especial menores');
+            beneficios.push('Horarios preferenciales');
+        } else if (tipo.includes('sesion')) {
+            beneficios.push('Pago por uso');
+            beneficios.push('Sin compromiso mensual');
+        } else {
+            beneficios.push('Acceso completo al gimnasio');
+            beneficios.push('Uso de todos los equipos');
+        }
+        
+        return beneficios;
+    };
+
+    // Función para formatear nombres de tipos
+    const formatearTipo = (tipo) => {
+        return tipo
+            .replace(/_/g, ' ')
+            .replace(/\b\w/g, l => l.toUpperCase())
+            .replace('Vip', 'VIP')
+            .replace('Usuario Nacional', '(Nacional)')
+            .replace('Usuario Extranjero', '(Extranjero)');
+    };
+
     if (loading) return <div>Cargando...</div>;
     if (error) return <div className="error-msg">{error}</div>;
 
+    // Procesamiento de tarifas
     const tarifasAdaptadas = (sucursal.tarifas || []).map((t) => ({
-        tipo: t.tipo.replace(/_/g, ' '),
+        tipo: formatearTipo(t.tipo),
         monto: t.monto,
         moneda: t.moneda,
-        beneficios: t.beneficios || [],
-        destacado: t.tipo.toLowerCase().includes('destacado')
+        beneficios: obtenerBeneficios(t.tipo, t.descripcion),
+        destacado: t.destacado // Usar directamente el valor del JSON
     }));
 
     return (

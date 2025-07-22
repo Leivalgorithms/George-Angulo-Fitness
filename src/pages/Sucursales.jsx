@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './css/Sucursales.css';
 
 import 'leaflet/dist/leaflet.css';
@@ -9,11 +9,11 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
-import sucursalesData from '../assets/Data/sucursales.json';
-import mapaData from '../assets/Data/mapa.json';
 import horariosData from '../assets/Data/horarios.json';
+import mapaData from '../assets/Data/mapa.json';
+import sucursalesData from '../assets/Data/sucursales.json';
 import tarifasData from '../assets/Data/tarifas.json';
 
 delete L.Icon.Default.prototype._getIconUrl;

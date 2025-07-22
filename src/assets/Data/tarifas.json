@@ -5,7 +5,8 @@
         "tipo": "mensualidad_regular",
         "descripcion": "",
         "monto": 23000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "tipo": "trimestre_cliente_activo_regular",
         "descripcion": "",
         "monto": 55000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": true
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "tipo": "trimestre_menor_edad",
         "descripcion": "",
         "monto": 30000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": true
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "tipo": "sesion",
         "descripcion": "",
         "monto": 3500.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "tipo": "mensualidad_regular",
         "descripcion": "",
         "monto": 23000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "tipo": "trimestre_cliente_activo_regular",
         "descripcion": "",
         "monto": 55000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": true
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "tipo": "trimestre_menor_edad",
         "descripcion": "",
         "monto": 30000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "tipo": "sesion",
         "descripcion": "",
         "monto": 3500.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "tipo": "mensualidad_menor_edad",
         "descripcion": "",
         "monto": 15000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@
         "tipo": "mensualidad_regular",
         "descripcion": "",
         "monto": 20000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 11,
@@ -85,7 +95,8 @@
         "tipo": "mensualidad_vip_usuario_nacional",
         "descripcion": "acceso sede Jacó y Herradura",
         "monto": 23000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": true
     },
     {
         "id": 12,
@@ -93,7 +104,8 @@
         "tipo": "mensualidad_vip_usuario_extranjero",
         "descripcion": "acceso sede Jacó y Herradura",
         "monto": 50.00,
-        "moneda": "USD"
+        "moneda": "USD",
+        "destacado": true
     },
     {
         "id": 13,
@@ -101,7 +113,8 @@
         "tipo": "trimestre_cliente_nuevo_regular",
         "descripcion": "",
         "monto": 55000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 14,
@@ -109,7 +122,8 @@
         "tipo": "trimestre_menor_edad",
         "descripcion": "",
         "monto": 30000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 15,
@@ -117,7 +131,8 @@
         "tipo": "sesion",
         "descripcion": "",
         "monto": 4000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 16,
@@ -125,7 +140,8 @@
         "tipo": "mensualidad_menor_edad",
         "descripcion": "",
         "monto": 15000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 17,
@@ -133,7 +149,8 @@
         "tipo": "mensualidad_regular",
         "descripcion": "",
         "monto": 20000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 18,
@@ -141,7 +158,8 @@
         "tipo": "mensualidad_vip_usuario_nacional",
         "descripcion": "acceso sede Jacó y Herradura",
         "monto": 23000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": true
     },
     {
         "id": 19,
@@ -149,7 +167,8 @@
         "tipo": "mensualidad_vip_usuario_extranjero",
         "descripcion": "acceso sede Jacó y Herradura",
         "monto": 50.00,
-        "moneda": "USD"
+        "moneda": "USD",
+        "destacado": false
     },
     {
         "id": 20,
@@ -157,7 +176,8 @@
         "tipo": "trimestre_cliente_nuevo_regular",
         "descripcion": "",
         "monto": 55000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 21,
@@ -165,7 +185,8 @@
         "tipo": "trimestre_menor_edad",
         "descripcion": "",
         "monto": 30000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     },
     {
         "id": 22,
@@ -173,6 +194,7 @@
         "tipo": "sesion",
         "descripcion": "",
         "monto": 4000.00,
-        "moneda": "CRC"
+        "moneda": "CRC",
+        "destacado": false
     }
 ]

@@ -20,68 +20,12 @@ import './css/Servicios.css';
 
 const ServicesPage = () => {
     const navigate = useNavigate();
-    const [activeService, setActiveService] = useState('productos');
+    const [activeService, setActiveService] = useState('equipo');
     const [imageLoaded, setImageLoaded] = useState(false);
 
     // Datos de servicios
     const services = {
-        productos: {
-            id: 'productos',
-            title: 'Ventas de Productos',
-            subtitle: 'Suplementos y Nutrición Deportiva',
-            description: 'Ofrecemos una amplia gama de productos nutricionales de alta calidad para complementar tu entrenamiento y alcanzar tus objetivos fitness.',
-            image: productosImg,
-            icon: FaShoppingCart,
-            features: [
-                {
-                    icon: FaWater,
-                    title: 'Hidratación Premium',
-                    description: 'Agua purificada y bebidas deportivas'
-                },
-                {
-                    icon: FaSuperpowers,
-                    title: 'Suplementos Elite',
-                    description: 'Proteínas y aminoácidos de calidad superior'
-                },
-                {
-                    icon: FaHeart,
-                    title: 'Nutrición Integral',
-                    description: 'Productos para bienestar completo'
-                }
-            ],
-            products: [
-                {
-                    name: 'Agua 650 ml + Scoop Aminoenergy',
-                    price: '₡1.300',
-                    featured: true
-                },
-                {
-                    name: 'Agua 1000 ml + Scoop Aminoenergy',
-                    price: '₡1.500',
-                    featured: false
-                },
-                {
-                    name: 'Scoop Iso 100 Vainilla o Chocolate',
-                    price: '₡1.000',
-                    featured: true
-                },
-                {
-                    name: 'Scoop C4',
-                    price: '₡1.000',
-                    featured: false
-                },
-                {
-                    name: 'Agua 650 ml',
-                    price: '₡800',
-                    featured: false
-                },
-                {
-                    name: 'Hidratante Gatorade',
-                    price: '₡1.200',
-                    featured: false
-                }
-            ]
-        },
+
         equipo: {
             id: 'equipo',
             title: 'Venta de Equipo de Gimnasio',
@@ -121,6 +65,63 @@ const ServicesPage = () => {
                 phone: '8480-3030',
                 company: 'MUNDO FIT DE CENTROAMÉRICA'
             }
+        },
+        productos: {
+            id: 'productos',
+            title: 'Ventas de Productos',
+            subtitle: 'Suplementos y Nutrición Deportiva',
+            description: 'Ofrecemos una amplia gama de productos nutricionales de alta calidad para complementar tu entrenamiento y alcanzar tus objetivos fitness.',
+            image: productosImg,
+            icon: FaShoppingCart,
+            features: [
+                {
+                    icon: FaWater,
+                    title: 'Hidratación Premium',
+                    description: 'Agua purificada y bebidas deportivas'
+                },
+                {
+                    icon: FaSuperpowers,
+                    title: 'Suplementos Elite',
+                    description: 'Proteínas y aminoácidos de calidad superior'
+                },
+                {
+                    icon: FaHeart,
+                    title: 'Nutrición Integral',
+                    description: 'Productos para bienestar completo'
+                }
+            ],
+            products: [
+                {
+                    name: 'Agua 650 ml + Scoop Aminoenergy',
+                    price: '₡1.300',
+                    featured: false
+                },
+                {
+                    name: 'Agua 1000 ml + Scoop Aminoenergy',
+                    price: '₡1.500',
+                    featured: false
+                },
+                {
+                    name: 'Scoop Iso 100 Vainilla o Chocolate',
+                    price: '₡1.000',
+                    featured: false
+                },
+                {
+                    name: 'Scoop C4',
+                    price: '₡1.000',
+                    featured: false
+                },
+                {
+                    name: 'Agua 650 ml',
+                    price: '₡800',
+                    featured: false
+                },
+                {
+                    name: 'Hidratante Gatorade',
+                    price: '₡1.200',
+                    featured: false
+                }
+            ]
         }
     };
 
@@ -216,21 +217,7 @@ const ServicesPage = () => {
                     </div>
 
                     {/* Products or Equipment List */}
-                    {activeService === 'productos' ? (
-                        <div className="products-section">
-                            <h4 className="section-title">Productos Disponibles</h4>
-                            <div className="products-grid">
-                                {currentService.products.map((product, index) => (
-                                    <ProductCard
-                                        key={index}
-                                        name={product.name}
-                                        price={product.price}
-                                        featured={product.featured}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    ) : (
+                    {activeService === 'equipo' ? (
                         <div className="equipment-section">
                             <h4 className="section-title">Equipos Disponibles</h4>
                             <div className="equipment-list">
@@ -251,6 +238,20 @@ const ServicesPage = () => {
                                 <p className="contact-detail">
                                     <strong>Empresa:</strong> {currentService.contact.company}
                                 </p>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="products-section">
+                            <h4 className="section-title">Productos Disponibles</h4>
+                            <div className="products-grid">
+                                {currentService.products.map((product, index) => (
+                                    <ProductCard
+                                        key={index}
+                                        name={product.name}
+                                        price={product.price}
+                                        featured={product.featured}
+                                    />
+                                ))}
                             </div>
                         </div>
                     )}
