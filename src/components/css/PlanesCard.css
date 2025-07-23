@@ -1,3 +1,7 @@
+/* ==========================================================================
+   PLANES CARD COMPONENT - CON SISTEMA FEATURED
+   ========================================================================== */
+
 .planes-container {
     display: flex;
     justify-content: center;
@@ -5,7 +9,6 @@
     gap: 1.5rem;
     padding: 2rem;
 }
-
 
 .plan-card {
     background-color: #ffffff;
@@ -15,27 +18,41 @@
     width: 300px;
     text-align: center;
     position: relative;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
     flex-shrink: 0;
+    border: 1px solid #f8f9fa;
 }
 
 .plan-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 0 25px rgba(123, 31, 162,0.5);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+.plan-card.featured {
+    border-color: #FFD700;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+    transform: scale(1.05);
+}
 
-.popular-label {
-    background-color: #000;
-    color: #000;
-    font-weight: bold;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
+.plan-card.featured:hover {
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+    transform: scale(1.05) translateY(-5px);
+}
+
+.featured-badge {
     position: absolute;
-    top: -10px;
+    top: -12px;
     left: 50%;
     transform: translateX(-50%);
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #2c3e50;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 .plan-tipo {
@@ -44,17 +61,28 @@
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #2c3e50;
+}
+
+.plan-card.featured .plan-tipo {
+    color: #7B1FA2;
 }
 
 .plan-precio {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.plan-card.featured .plan-precio {
+    color: #7B1FA2;
 }
 
 .mes-label {
     font-size: 0.9rem;
     font-weight: normal;
+    color: #6c757d;
 }
 
 .plan-beneficios {
@@ -73,13 +101,38 @@
 }
 
 .plan-beneficios li::before {
+    content: "✓";
     position: absolute;
     left: 0;
+    color: #7B1FA2;
+    font-weight: bold;
 }
+
+.plan-card.featured .plan-beneficios li::before {
+    color: #FFD700;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
 
 @media (max-width: 768px) {
     .planes-container {
         flex-direction: column;
         align-items: center;
+        padding: 1rem;
+    }
+
+    .plan-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .plan-card.featured {
+        transform: none;
+    }
+
+    .plan-card.featured:hover {
+        transform: translateY(-5px);
     }
 }
