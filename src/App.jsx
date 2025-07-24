@@ -4,6 +4,8 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import { Contactanos, HomePage, Servicios, SucursalDetalle, Sucursales, TrabajaConNosotrso } from './pages';
 import ConfirmPage from './pages/confirm';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 
 const ScrollToTopOnMount = ({ children }) => {
   const location = useLocation();
@@ -29,6 +31,8 @@ function App() {
             <Route path="/sucursales/:nombre" element={<SucursalDetalle />} />
             <Route path="/trabaja-con-nosotros" element={<TrabajaConNosotrso />} />
             <Route path="/contactos" element={<Contactanos />} />
+            <Route path="/blog" element={<Blog />}/>
+            <Route path="/blog/:id" element={<BlogDetail />}/>
           </Routes>
           </ScrollToTopOnMount>
         </main>
