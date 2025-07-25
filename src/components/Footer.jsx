@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './css/Footer.css';
-import logo from '../assets/logoNoBg.png';
+import { useState } from 'react';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebookF } from 'react-icons/fa';
+import logo from '../assets/logoNoBg.png';
+import './css/Footer.css';
 
 const Footer = () => {
 
@@ -37,7 +37,7 @@ const Footer = () => {
                         title="Haz clic para copiar"
                         style={{ cursor: 'pointer' }}
                     >
-                        Email: servicioalclientegaf@outlook.com
+                        servicioalclientegaf@outlook.com
                     </p>
                     <Link className='chamba' to='/trabaja-con-nosotros'>
                         Trabaja con Nosotros

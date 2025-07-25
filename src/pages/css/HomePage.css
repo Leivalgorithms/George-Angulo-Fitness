@@ -116,62 +116,6 @@
     flex-wrap: wrap;
 }
 
-/* Features Section */
-.hero-features {
-    display: flex;
-    gap: 1rem;
-    justify-content: left;
-    flex-wrap: wrap;
-    max-width: 800px;
-    margin-top: 1rem;
-}
-
-.feature-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    min-width: 150px;
-    max-width: 200px;
-}
-
-.feature-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.feature-icon {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    border-radius: 50%;
-    color: white;
-    font-size: 0.8rem;
-    flex-shrink: 0;
-}
-
-.feature-content {
-    flex: 1;
-}
-
-.feature-title {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
-
 /* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */
@@ -241,12 +185,12 @@
     }
 
     .hero-title {
-        font-size: clamp(1.3rem, 6vw, 1.8rem);
+        font-size: clamp(2rem, 6vw, 1.8rem);
         margin-bottom: 1rem;
     }
 
     .hero-description {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-bottom: 1.5rem;
     }
 
@@ -298,7 +242,7 @@
     }
 
     .hero-description {
-        font-size: 0.85rem;
+        font-size: 1rem;
     }
 
     .feature-card {

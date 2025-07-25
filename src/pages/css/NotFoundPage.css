@@ -1,0 +1,208 @@
+/* ==========================================================================
+   404 PAGE STYLES
+   ========================================================================== */
+
+.error-page {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    transform: translateY(-115px);
+    margin-bottom: -115px;
+}
+
+.error-content {
+    max-width: 600px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-code {
+    font-size: clamp(6rem, 12vw, 10rem);
+    font-weight: 900;
+    color: #7B1FA2;
+    margin-bottom: 1rem;
+    line-height: 1;
+    background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 8px rgba(123, 31, 162, 0.1);
+}
+
+.error-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.error-message {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   CTA BUTTONS INTEGRATION
+   ========================================================================== */
+
+.error-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.cta-button-404 {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   QUICK LINKS
+   ========================================================================== */
+
+.quick-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    color: #6c757d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.quick-link:hover {
+    color: #7B1FA2;
+    transform: translateY(-3px);
+}
+
+.quick-link-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.quick-link-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .error-buttons {
+        justify-content: center;
+    }
+}
+
+/* Tablets (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .error-page {
+        padding: 8rem 2rem 4rem;
+        transform: translateY(-115px);
+        margin-bottom: -115px;
+    }
+
+    .error-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .error-page {
+        padding: 8rem 2rem 4rem; 
+        transform: translateY(-115px);
+        margin-bottom: -115px;
+    }
+
+    .error-buttons {
+        gap: 0.75rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button-404 {
+        min-width: 200px !important;
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .quick-links {
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile Large (481px - 767px) */
+@media (min-width: 250px) and (max-width: 767px) {
+    .cta-button-404 {
+        width: 200px !important;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cta-button-404 {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.85rem !important;
+        min-width: 180px !important;
+        width: auto !important;
+    }
+
+    .quick-links {
+        gap: 1rem;
+    }
+
+    .quick-link {
+        min-width: 60px;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    .cta-button-404 {
+        padding: 1.125rem 2.5rem !important;
+        font-size: 1.1rem !important;
+    }
+}

@@ -47,7 +47,7 @@ const ServicesPage = () => {
                 {
                     icon: FaTag,
                     title: 'Precios Competitivos',
-                    description: 'Las mejores ofertas del mercado'
+                    description: 'Los mejores precios del mercado'
                 }
             ],
             equipment: [
@@ -201,6 +201,38 @@ const ServicesPage = () => {
                         </div>
                     </div>
 
+                    {/* Products or Equipment List */}
+                    {activeService === 'equipo' ? (
+                        <div className="equipment-section">
+                            <h4 className="section-title">Equipos Disponibles</h4>
+                            <div className="equipment-list">
+                                {currentService.equipment.map((item, index) => (
+                                    <EquipmentItem 
+                                        key={index}
+                                        text={item}
+                                    />
+                                ))}
+                            </div>
+                            
+                            {/* Contact Info - Integrado en la página */}
+                            
+                        </div>
+                    ) : (
+                        <div className="products-section">
+                            <h4 className="section-title">Productos Disponibles</h4>
+                            <div className="products-grid">
+                                {currentService.products.map((product, index) => (
+                                    <ProductCard
+                                        key={index}
+                                        name={product.name}
+                                        price={product.price}
+                                        featured={product.featured}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                     {/* Service Features */}
                     <div className="service-features">
                         <h4 className="features-title">Características Destacadas</h4>
@@ -216,43 +248,15 @@ const ServicesPage = () => {
                         </div>
                     </div>
 
-                    {/* Products or Equipment List */}
-                    {activeService === 'equipo' ? (
-                        <div className="equipment-section">
-                            <h4 className="section-title">Equipos Disponibles</h4>
-                            <div className="equipment-list">
-                                {currentService.equipment.map((item, index) => (
-                                    <EquipmentItem 
-                                        key={index}
-                                        text={item}
-                                    />
-                                ))}
-                            </div>
-                            
-                            {/* Contact Info - Integrado en la página */}
-                            <div className="contact-info">
-                                <h5 className="contact-title">Información de Contacto</h5>
-                                <p className="contact-detail">
-                                    <strong>Teléfono:</strong> {currentService.contact.phone}
-                                </p>
-                                <p className="contact-detail">
-                                    <strong>Empresa:</strong> {currentService.contact.company}
-                                </p>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="products-section">
-                            <h4 className="section-title">Productos Disponibles</h4>
-                            <div className="products-grid">
-                                {currentService.products.map((product, index) => (
-                                    <ProductCard
-                                        key={index}
-                                        name={product.name}
-                                        price={product.price}
-                                        featured={product.featured}
-                                    />
-                                ))}
-                            </div>
+                    {activeService === 'equipo' && (
+                        <div className="contact-info">
+                            <h5 className="contact-title">Información de Contacto</h5>
+                            <p className="contact-detail">
+                                <strong>Teléfono:</strong> {currentService.contact.phone}
+                            </p>
+                            <p className="contact-detail">
+                                <strong>Empresa:</strong> {currentService.contact.company}
+                            </p>
                         </div>
                     )}
 

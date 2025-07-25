@@ -68,7 +68,7 @@ const SucursalDetalle = () => {
     // Función para obtener beneficios según el tipo de plan
     const obtenerBeneficios = (tipo, descripcion) => {
         const beneficios = [];
-        
+
         if (tipo.includes('vip')) {
             beneficios.push('Acceso a múltiples sedes');
             if (descripcion) beneficios.push(descripcion);
@@ -90,7 +90,7 @@ const SucursalDetalle = () => {
             beneficios.push('Acceso completo al gimnasio');
             beneficios.push('Uso de todos los equipos');
         }
-        
+
         return beneficios;
     };
 

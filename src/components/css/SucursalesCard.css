@@ -1,0 +1,311 @@
+.button-text {
+    font-size: 0.85rem;
+}
+
+.button-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   SUCURSAL CARD COMPONENT STYLES
+   ========================================================================== */
+
+.sucursal-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #7B1FA2;
+    position: relative;
+    overflow: hidden;
+}
+
+.sucursal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    transition: left 0.6s ease;
+}
+
+/* Card Header - Layout Horizontal */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+}
+
+.card-info-left {
+    flex: 1;
+    min-width: 250px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-province {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #2c3e50;
+}
+
+.card-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.card-address {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.card-icon {
+    color: #7B1FA2;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.phone-link {
+    color: #7B1FA2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #9C27B0;
+    text-decoration: underline;
+}
+
+/* Horarios en la sección derecha */
+.card-info-right {
+    flex: 1;
+    max-width: 300px;
+}
+
+.card-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.day {
+    font-weight: 700;
+    color: #2c3e50;
+    min-width: 140px;
+}
+
+.time {
+    color: #6c757d;
+}
+
+/* Botón de acción */
+.card-action {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Integración con CTAButton */
+.card-action .card-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.2);
+    border: 2px solid #7B1FA2;
+    background-color: white;
+    color: #7B1FA2;
+    min-width: auto;
+}
+
+.card-action .card-cta-button:hover {
+    background-color: #7B1FA2;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 31, 162, 0.4);
+}
+
+.card-action .card-cta-button:hover .button-icon {
+    transform: translateX(3px);
+}
+
+/* Sección de tarifas (nueva funcionalidad) */
+.card-tarifas {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tarifa-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #7B1FA2;
+}
+
+.tarifa-tipo {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tarifa-monto {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #7B1FA2;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - SUCURSAL CARD
+   ========================================================================== */
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-info-right {
+        max-width: none;
+        width: 100%;
+    }
+
+    .card-action {
+        align-self: flex-end;
+    }
+
+    .card-tarifas {
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .sucursal-card {
+        padding: 1.5rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-info-left {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .card-info-right {
+        max-width: none;
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .schedule-item {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .day {
+        min-width: 120px;
+    }
+
+    .card-action {
+        align-self: stretch;
+    }
+
+    .card-action .card-cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+    }
+
+    .card-tarifas {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .tarifa-item {
+        align-self: stretch;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .sucursal-card {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-province,
+    .card-phone {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .card-icon {
+        align-self: flex-start;
+    }
+
+    .schedule-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .day {
+        min-width: auto;
+    }
+}

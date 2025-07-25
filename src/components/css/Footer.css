@@ -32,7 +32,7 @@
     margin-bottom: 10px;
 }
 .footer-contact a:hover {
-    color: #ff6b6b;
+    color: #7B1FA2;
 }
 
 .footer-social a {
@@ -47,7 +47,7 @@
 }
 
 .footer-social a:hover {
-    color: #ff6b6b;
+    color: #7B1FA2;
 }
 
 .footer-bottom {
@@ -57,7 +57,7 @@
 }
 
 .email-copy:hover {
-    color: #ff6b6b;
+    color: #7B1FA2;
     text-decoration: underline;
 }
 

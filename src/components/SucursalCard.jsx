@@ -1,36 +1,74 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../pages/css/Sucursales.css';
+import { FaArrowRight, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import CTAButton from './CTAButton';
+import './css/SucursalesCard.css';
 
-const SucursalCard = ({ nombre, provincia, telefono, horarios }) => {
+const SucursalCard = ({ nombre, provincia, telefono, direccion, horarios, tarifas }) => {
+    const navigate = useNavigate();
+
+    const handleVerSede = () => {
+        navigate(`/sucursales/${encodeURIComponent(nombre)}`);
+    };
     return (
         <div className="sucursal-card">
             <div className="card-header">
-                <h2 className="card-title">{nombre}</h2>
-                <span className="card-phone">
-                    Teléfono: <a href={`tel:${telefono}`}>{telefono}</a>
-                </span>
+                {/* Información principal - lado izquierdo */}
+                <div className="card-info-left">
+                    <h2 className="card-title">{nombre}</h2>
+                    
+                    <div className="card-province">
+                        <FaMapMarkerAlt className="card-icon" />
+                        <span>{provincia}</span>
+                    </div>
+                    
+                    <div className="card-phone">
+                        <FaPhone className="card-icon" />
+                        <a href={`tel:${telefono}`} className="phone-link">
+                            {telefono}
+                        </a>
+                    </div>
+                    
+                    {direccion && (
+                        <div className="card-address">
+                            <span>{direccion}</span>
+                        </div>
+                    )}
+                </div>
+
+                {/* Horarios - lado derecho */}
+                <div className="card-info-right">
+                    <div className="card-schedule">
+                        {horarios && horarios.length > 0 ? (
+                            horarios.map((horario, index) => (
+                                <div key={index} className="schedule-item">
+                                    <span className="day">{horario.dia}</span>
+                                    <span className="time">{horario.hora}</span>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="schedule-item">
+                                <span className="day">Horarios</span>
+                                <span className="time">Consultar</span>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                {/* Botón de acción */}
+                <div className="card-action">
+                    <CTAButton
+                        variant="primary"
+                        onClick={handleVerSede}
+                        ariaLabel={`Ver detalles de la sucursal ${nombre}`}
+                        className="card-cta-button"
+                    >
+                        <span className="button-text">Ver sede</span>
+                        <FaArrowRight className="button-icon" />
+                    </CTAButton>
+                </div>
             </div>
-            <div className="card-hours">
-                <p className="card-province"><strong>Provincia:</strong> {provincia}</p>
-                {horarios.map((h, index) => (
-                    <p key={index}>
-                        <strong>{h.dia}:</strong> {h.hora}
-                    </p>
-                ))}
-            </div>
-            <Link
-                to={`/sucursales/${encodeURIComponent(nombre)}`}
-                className="sucursal-boton"
-            >
-                Ver esta sede
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                </svg>
-            </Link>
         </div>
     );
-}
+};
 
 export default SucursalCard;
