@@ -1,3 +1,7 @@
+/* ==========================================================================
+   CARRUSEL COMPONENT - ESTILOS BASE
+   ========================================================================== */
+
 .carrusel {
     position: relative;
     width: 100%;
@@ -10,7 +14,8 @@
 .carrusel-imagen-wrapper {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 400px;
+    background: #f8f9fa;
 }
 
 .carrusel-imagen {
@@ -40,7 +45,7 @@
     justify-content: center;
     gap: 0.5rem;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.4); /* opcional para mejorar contraste */
+    background: rgba(0, 0, 0, 0.4);
     padding: 5px 10px;
     border-radius: 20px;
 }
@@ -51,8 +56,67 @@
     background-color: #ccc;
     border-radius: 50%;
     transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.indicador:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .indicador.activo {
     background-color: white;
+}
+
+.foto-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: #ddd;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 991px) {
+    .carrusel {
+        max-width: 950px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carrusel-imagen-wrapper {
+        height: 300px;
+    }
+
+    .foto-placeholder {
+        height: 300px;
+        font-size: 1rem;
+    }
+
+    .carrusel-indicadores {
+        bottom: 8px;
+        padding: 4px 8px;
+        gap: 0.4rem;
+    }
+
+    .indicador {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrusel-imagen-wrapper {
+        height: 250px;
+    }
+
+    .foto-placeholder {
+        height: 250px;
+        font-size: 0.9rem;
+    }
 }

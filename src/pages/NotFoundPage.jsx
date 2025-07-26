@@ -1,4 +1,4 @@
-import { FaClock, FaDumbbell, FaHome, FaUsers } from 'react-icons/fa';
+import { FaDumbbell, FaHome } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import CTAButton from '../components/CTAButton';
 import './css/NotFoundPage.css';
@@ -45,29 +45,11 @@ const NotFoundPage = () => {
                         variant="secondary"
                         onClick={handleGoSucursales}
                         className="light-bg cta-button-404"
-                        ariaLabel="Ver página de servicios"
+                        ariaLabel="Ver página de sucursales"
                     >
                         <FaDumbbell />
                         Ver Sucursales
                     </CTAButton>
-                </div>
-
-                {/* Links rápidos minimalistas */}
-                <div className="quick-links">
-                    <a href="/horarios" className="quick-link" aria-label="Ver horarios">
-                        <FaClock className="quick-link-icon" />
-                        <span className="quick-link-text">Horarios</span>
-                    </a>
-
-                    <a href="/clases" className="quick-link" aria-label="Ver clases disponibles">
-                        <FaUsers className="quick-link-icon" />
-                        <span className="quick-link-text">Clases</span>
-                    </a>
-
-                    <a href="/membresias" className="quick-link" aria-label="Ver planes de membresía">
-                        <FaDumbbell className="quick-link-icon" />
-                        <span className="quick-link-text">Planes</span>
-                    </a>
                 </div>
             </div>
         </div>

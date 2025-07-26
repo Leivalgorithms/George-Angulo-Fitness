@@ -1,4 +1,4 @@
-import { FaArrowRight, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaArrowRight, FaClock, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import CTAButton from './CTAButton';
 import './css/SucursalesCard.css';
@@ -9,48 +9,56 @@ const SucursalCard = ({ nombre, provincia, telefono, direccion, horarios, tarifa
     const handleVerSede = () => {
         navigate(`/sucursales/${encodeURIComponent(nombre)}`);
     };
+
     return (
         <div className="sucursal-card">
             <div className="card-header">
-                {/* Información principal - lado izquierdo */}
-                <div className="card-info-left">
-                    <h2 className="card-title">{nombre}</h2>
-                    
-                    <div className="card-province">
-                        <FaMapMarkerAlt className="card-icon" />
-                        <span>{provincia}</span>
-                    </div>
-                    
-                    <div className="card-phone">
-                        <FaPhone className="card-icon" />
-                        <a href={`tel:${telefono}`} className="phone-link">
-                            {telefono}
-                        </a>
-                    </div>
-                    
-                    {direccion && (
-                        <div className="card-address">
-                            <span>{direccion}</span>
-                        </div>
-                    )}
-                </div>
+                {/* Contenido principal */}
+                <div className="card-main-content">
+                    {/* Información principal - lado izquierdo */}
+                    <div className="card-info-left">
+                        <h2 className="card-title">{nombre}</h2>
 
-                {/* Horarios - lado derecho */}
-                <div className="card-info-right">
-                    <div className="card-schedule">
-                        {horarios && horarios.length > 0 ? (
-                            horarios.map((horario, index) => (
-                                <div key={index} className="schedule-item">
-                                    <span className="day">{horario.dia}</span>
-                                    <span className="time">{horario.hora}</span>
-                                </div>
-                            ))
-                        ) : (
-                            <div className="schedule-item">
-                                <span className="day">Horarios</span>
-                                <span className="time">Consultar</span>
+                        <div className="card-info-item">
+                            <FaMapMarkerAlt className="card-icon" />
+                            <span>Provincia de {provincia}</span>
+                        </div>
+
+                        <div className="card-info-item">
+                            <FaPhone className="card-icon" />
+                            <a href={`tel:${telefono}`} className="phone-link">
+                                {telefono}
+                            </a>
+                        </div>
+
+                        {direccion && (
+                            <div className="card-address">
+                                {direccion}
                             </div>
                         )}
+                    </div>
+
+                    {/* Horarios - lado derecho */}
+                    <div className="card-info-right">
+                        <div className="schedule-title">
+                            <FaClock />
+                            Horarios
+                        </div>
+                        <div className="card-schedule">
+                            {horarios && horarios.length > 0 ? (
+                                horarios.map((horario, index) => (
+                                    <div key={index} className="schedule-item">
+                                        <span className="day">{horario.dia}</span>
+                                        <span className="time">{horario.hora}</span>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="schedule-item">
+                                    <span className="day">Horarios</span>
+                                    <span className="time">Consultar</span>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
 

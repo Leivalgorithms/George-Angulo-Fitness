@@ -545,14 +545,12 @@
 /* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
 
-    .trabaja-hero-title {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 1rem;
+    .trabaja-hero {
+        padding: 8rem 2rem 1rem;
     }
 
     .trabaja-hero-description {
-        font-size: 1.2rem;
-        line-height: 1.5;
+        display: none;
     }
 
     .trabaja-content {

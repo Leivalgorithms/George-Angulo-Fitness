@@ -445,7 +445,7 @@
 /* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
     .sucursales-hero {
-        padding: 8rem 3rem 4rem;
+        padding: 8rem 3rem 1rem;
     }
 
     .filters-container {
@@ -455,5 +455,9 @@
     .map-container,
     .sucursales-container {
         padding: 0 0.75rem;
+    }
+
+    .sucursales-hero-description {
+        display: none;
     }
 }

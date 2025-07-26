@@ -357,8 +357,17 @@
 
 /* Mobile Large (481px - 767px) */
 @media (min-width: 250px) and (max-width: 767px) {
+
+    .services-hero {
+        padding: 8rem 2rem 1rem;
+    }
+
     .service-container {
         padding: 0 1rem;
+    }
+
+    .services-hero-description {
+        display: none;
     }
 
     .service-content {

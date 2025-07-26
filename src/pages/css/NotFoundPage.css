@@ -82,7 +82,6 @@
     align-items: center;
     gap: 0.5rem;
 }
-
 /* ==========================================================================
    QUICK LINKS
    ========================================================================== */
@@ -152,7 +151,7 @@
 /* Mobile */
 @media (max-width: 768px) {
     .error-page {
-        padding: 8rem 2rem 4rem; 
+        padding: 8rem 2rem 4rem;
         transform: translateY(-115px);
         margin-bottom: -115px;
     }
