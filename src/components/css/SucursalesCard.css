@@ -1,0 +1,342 @@
+/* ==========================================================================
+   SUCURSAL CARD COMPONENT - DISEÑO MEJORADO CON TEMÁTICA CONSISTENTE
+   ========================================================================== */
+
+.sucursal-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #dee2e6;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.sucursal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(123, 31, 162, 0.15);
+    border-color: #7B1FA2;
+}
+
+.sucursal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   HEADER LAYOUT
+   ========================================================================== */
+
+.card-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    width: 100%;
+}
+
+.card-main-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ==========================================================================
+   INFORMACIÓN PRINCIPAL
+   ========================================================================== */
+
+.card-info-left {
+    min-width: 0;
+    /* Para evitar overflow en grid */
+}
+
+.card-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.card-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.card-icon {
+    color: #7B1FA2;
+    font-size: 1rem;
+    flex-shrink: 0;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-link {
+    color: #7B1FA2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #9C27B0;
+    text-decoration: underline;
+}
+
+.card-address {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    /* Alineado con los iconos */
+}
+
+/* ==========================================================================
+   SECCIÓN DE HORARIOS
+   ========================================================================== */
+
+.card-info-right {
+    border-radius: 15px;
+    min-width: 0;
+}
+
+.schedule-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.schedule-title::before {
+    content: '';
+    width: 3px;
+    height: 16px;
+    background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+    border-radius: 2px;
+}
+
+.card-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0.5rem 0;
+}
+
+.day {
+    font-weight: 700;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+.time {
+    color: #7B1FA2;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* ==========================================================================
+   BOTÓN DE ACCIÓN
+   ========================================================================== */
+
+.card-action {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.card-cta-button {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem !important;
+    border-radius: 25px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    min-width: 140px !important;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.button-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.card-cta-button:hover .button-icon {
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sucursal-card {
+        padding: 2rem;
+    }
+
+    .card-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-main-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-action {
+        grid-column: 1;
+        grid-row: auto;
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .sucursal-card {
+        padding: 1.5rem;
+    }
+
+    .card-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-main-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .card-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-address {
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    .card-info-right {
+        padding: 1.25rem;
+    }
+
+    .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .schedule-item:last-child {
+        border-bottom: none;
+    }
+
+    .time {
+        text-align: left;
+        color: #7B1FA2;
+        font-weight: 700;
+    }
+
+    .card-action {
+        grid-column: 1;
+        grid-row: auto;
+        justify-content: stretch;
+    }
+
+    .card-cta-button {
+        width: 100% !important;
+        padding: 1rem 1.5rem !important;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .sucursal-card {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-info-item {
+        font-size: 0.95rem;
+    }
+
+    .card-address {
+        font-size: 0.9rem;
+    }
+
+    .schedule-title {
+        font-size: 0.9rem;
+    }
+
+    .card-info-right {
+        padding: 1rem;
+    }
+}
+
+/* ==========================================================================
+   ANIMACIONES Y MICRO-INTERACCIONES
+   ========================================================================== */
+
+.card-info-item {
+    transition: all 0.3s ease;
+}
+
+.card-info-item:hover .card-icon {
+    transform: scale(1.1);
+    color: #9C27B0;
+}
+
+.schedule-item {
+    transition: all 0.3s ease;
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaEnvelope, FaFacebookF, FaInstagram, FaPhone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logoNoBg.png';
 import './css/Header.css';
@@ -10,7 +10,7 @@ const MENU_ITEMS = [
   { id: "sucursales", name: "Sucursales", href: "/sucursales" },
   { id: "planes", name: "Planes", href: "/planes" },
   { id: "servicios", name: "Servicios", href: "/servicios" },
-  { id: "contactos", name: "Contactos", href: "/contactos" }
+  { id: "contactos", name: "Contáctanos", href: "/contactos" }
 ];
 
 const SOCIAL_LINKS = [
@@ -31,19 +31,15 @@ const SOCIAL_LINKS = [
 const CONTACT_INFO = [
   {
     id: "phone",
-    text: "Teléfono:",
+    text: "Teléfono: 8585-8526",
     icon: FaPhone
   },
   {
     id: "email",
-    text: "Email:",
+    text: "servicioalclientegaf@outlook.com",
     icon: FaEnvelope
   },
-  {
-    id: "location",
-    text: "Costa Rica",
-    icon: FaMapMarkerAlt
-  }
+  
 ];
 
 const HEADER_CONFIG = {
@@ -196,6 +192,7 @@ const Header = () => {
                     <IconComponent className="mobile-menu-contact-icon" />
                     <span>{contact.text}</span>
                   </div>
+                  
                 );
               })}
             </div>

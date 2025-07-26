@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaFilter, FaMapMarkerAlt, FaSearch } from 'react-icons/fa';
 import './css/Sucursales.css';
 
 import 'leaflet/dist/leaflet.css';
@@ -54,7 +55,8 @@ const Sucursales = () => {
                     tipo: t.tipo,
                     descripcion: t.descripcion || '',
                     monto: t.monto,
-                    moneda: t.moneda
+                    moneda: t.moneda,
+                    destacado: t.destacado || false
                 }));
 
             return {
@@ -81,121 +83,174 @@ const Sucursales = () => {
     const provinciasUnicas = [...new Set(sedes.map(s => s.provincia))];
 
     return (
-        <div className="sucursales">
-            <h1 className="sucursales-title">Nuestras Sucursales</h1>
+        <div className="sucursales-page">
+            {/* Hero Section */}
+            <section className="sucursales-hero">
+                <div className="sucursales-hero-content">
+                    <h1 className="sucursales-hero-title">
+                        Nuestras <span className="highlight">Sucursales</span>
+                    </h1>
+                    <p className="sucursales-hero-description">
+                        Encuentra el gimnasio más cercano a ti. Contamos con múltiples ubicaciones 
+                        estratégicas para brindarte la mejor experiencia fitness.
+                    </p>
+                </div>
+            </section>
 
-            <div className="box-map">
-                <MapContainer center={[9.9281, -84.0907]} zoom={9} style={{ height: "400px", width: "100%", zIndex: 1 }}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {sedesFiltradas.map(sede => (
-                        sede.latitud && sede.longitud && (
-                            <Marker key={sede.id} position={[sede.latitud, sede.longitud]}>
-                                <Popup>
-                                    <div style={{ maxWidth: '300px' }}>
-                                        <strong>{sede.nombre}</strong><br />
-                                        <strong>Provincia: </strong>{sede.provincia}<br />
-                                        <strong>Dirección: </strong>{sede.direccion}<br />
+            {/* Map Section */}
+            <section className="map-section">
+                <div className="map-container">
+                    <div className="map-header">
+                        <h2 className="map-title">
+                            <FaMapMarkerAlt className="map-icon" />
+                            Ubicaciones en el Mapa
+                        </h2>
+                        <p className="map-description">
+                            Explora nuestras sucursales y encuentra la más conveniente para ti
+                        </p>
+                    </div>
+                    
+                    <div className="map-wrapper">
+                        <MapContainer 
+                            center={[9.9281, -84.0907]} 
+                            zoom={9} 
+                            style={{ height: "450px", width: "100%", zIndex: 1 }}
+                            className="leaflet-map"
+                        >
+                            <TileLayer
+                                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+                            {sedesFiltradas.map(sede => (
+                                sede.latitud && sede.longitud && (
+                                    <Marker key={sede.id} position={[sede.latitud, sede.longitud]}>
+                                        <Popup>
+                                            <div className="popup-content">
+                                                <h3 className="popup-title">{sede.nombre}</h3>
+                                                <p className="popup-info">
+                                                    <strong>Provincia:</strong> {sede.provincia}
+                                                </p>
+                                                <p className="popup-info">
+                                                    <strong>Dirección:</strong> {sede.direccion}
+                                                </p>
 
-                                        {sede.imagenes?.length > 0 && (
-                                            <div className="popup-carrusel">
-                                                <img
-                                                    src={obtenerImagen(
-                                                        sede.imagenes[imagenIndex[sede.id] || 0]?.replace('.jpeg', '').replace('.jpg', '')
-                                                    )}
-                                                    alt={`Imagen de ${sede.nombre}`}
-                                                />
+                                                {sede.imagenes?.length > 0 && (
+                                                    <div className="popup-carrusel">
+                                                        <img
+                                                            src={obtenerImagen(
+                                                                sede.imagenes[imagenIndex[sede.id] || 0]?.replace('.jpeg', '').replace('.jpg', '')
+                                                            )}
+                                                            alt={`Imagen de ${sede.nombre}`}
+                                                            className="popup-image"
+                                                        />
 
-                                                {sede.imagenes.length > 1 && (
-                                                    <>
-                                                        <button
-                                                            className="popup-flecha izquierda"
-                                                            onClick={() =>
-                                                                setImagenIndex(prev => ({
-                                                                    ...prev,
-                                                                    [sede.id]: (prev[sede.id] ?? 0) === 0
-                                                                        ? sede.imagenes.length - 1
-                                                                        : (prev[sede.id] ?? 0) - 1
-                                                                }))
-                                                            }
-                                                        >
-                                                            ‹
-                                                        </button>
-                                                        <button
-                                                            className="popup-flecha derecha"
-                                                            onClick={() =>
-                                                                setImagenIndex(prev => ({
-                                                                    ...prev,
-                                                                    [sede.id]: (prev[sede.id] ?? 0) === sede.imagenes.length - 1
-                                                                        ? 0
-                                                                        : (prev[sede.id] ?? 0) + 1
-                                                                }))
-                                                            }
-                                                        >
-                                                            ›
-                                                        </button>
-                                                    </>
+                                                        {sede.imagenes.length > 1 && (
+                                                            <>
+                                                                <button
+                                                                    className="popup-arrow left"
+                                                                    onClick={() =>
+                                                                        setImagenIndex(prev => ({
+                                                                            ...prev,
+                                                                            [sede.id]: (prev[sede.id] ?? 0) === 0
+                                                                                ? sede.imagenes.length - 1
+                                                                                : (prev[sede.id] ?? 0) - 1
+                                                                        }))
+                                                                    }
+                                                                >
+                                                                    ‹
+                                                                </button>
+                                                                <button
+                                                                    className="popup-arrow right"
+                                                                    onClick={() =>
+                                                                        setImagenIndex(prev => ({
+                                                                            ...prev,
+                                                                            [sede.id]: (prev[sede.id] ?? 0) === sede.imagenes.length - 1
+                                                                                ? 0
+                                                                                : (prev[sede.id] ?? 0) + 1
+                                                                        }))
+                                                                    }
+                                                                >
+                                                                    ›
+                                                                </button>
+                                                            </>
+                                                        )}
+                                                    </div>
                                                 )}
                                             </div>
-                                        )}
-                                    </div>
-                                </Popup>
+                                        </Popup>
+                                    </Marker>
+                                )
+                            ))}
+                        </MapContainer>
+                    </div>
+                </div>
+            </section>
 
-                            </Marker>
-                        )
-                    ))}
-                </MapContainer>
-            </div>
-
-            <div className="filters-container">
-                <div className="search-wrapper">
-                    <input
-                        type="text"
-                        placeholder="Buscar sucursal..."
-                        value={busqueda}
-                        onChange={e => setBusqueda(e.target.value)}
-                        className="search-bar"
-                    />
-                    <svg
-                        className="search-icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"
+            {/* Filters Section */}
+            <section className="filters-section">
+                <div className="filters-container">
+                    <div className="search-wrapper">
+                        <FaSearch className="search-icon" />
+                        <input
+                            type="text"
+                            placeholder="Buscar por nombre o provincia..."
+                            value={busqueda}
+                            onChange={e => setBusqueda(e.target.value)}
+                            className="search-input"
                         />
-                    </svg>
-                </div>
+                    </div>
 
-                <div className="filter-wrapper">
-                    <select value={filtro} onChange={e => setFiltro(e.target.value)} className="filter-select">
-                        <option value="">Provincia</option>
-                        {provinciasUnicas.map((prov, i) => (
-                            <option key={i} value={prov}>{prov}</option>
+                    <div className="filter-wrapper">
+                        <FaFilter className="filter-icon" />
+                        <select 
+                            value={filtro} 
+                            onChange={e => setFiltro(e.target.value)} 
+                            className="filter-select"
+                        >
+                            <option value="">Todas las provincias</option>
+                            {provinciasUnicas.map((prov, i) => (
+                                <option key={i} value={prov}>{prov}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            {/* Sucursales Grid */}
+            <section className="sucursales-content">
+                <div className="sucursales-container">
+                    <div className="sucursales-header">
+                        <h2 className="section-title">Todas Nuestras Sucursales</h2>
+                        <p className="section-description">
+                            {sedesFiltradas.length} sucursal{sedesFiltradas.length !== 1 ? 'es' : ''} encontrada{sedesFiltradas.length !== 1 ? 's' : ''}
+                        </p>
+                    </div>
+
+                    <div className="sucursales-grid">
+                        {sedesFiltradas.map(sede => (
+                            <SucursalCard
+                                key={sede.id}
+                                nombre={sede.nombre}
+                                provincia={sede.provincia}
+                                telefono={sede.telefono}
+                                direccion={sede.direccion}
+                                horarios={sede.horarios}
+                                tarifas={sede.tarifas}
+                            />
                         ))}
-                    </select>
-                </div>
-            </div>
+                    </div>
 
-            {sedesFiltradas.map(sede => (
-                <SucursalCard
-                    key={sede.id}
-                    nombre={sede.nombre}
-                    provincia={sede.provincia}
-                    telefono={sede.telefono}
-                    horarios={sede.horarios}
-                    tarifas={sede.tarifas}
-                />
-            ))}
+                    {sedesFiltradas.length === 0 && (
+                        <div className="no-results">
+                            <FaMapMarkerAlt className="no-results-icon" />
+                            <h3 className="no-results-title">No se encontraron sucursales</h3>
+                            <p className="no-results-text">
+                                Intenta con otros términos de búsqueda o cambia el filtro de provincia
+                            </p>
+                        </div>
+                    )}
+                </div>
+            </section>
         </div>
     );
 };

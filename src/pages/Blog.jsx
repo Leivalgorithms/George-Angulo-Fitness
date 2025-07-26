@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './css/Blog.css';
-import gym from '../assets/Gym.jpg';
-import logo from '../assets/logoNoBg.png';
 import anuncios from '../assets/Data/anuncios.json';
+import gym from '../assets/Gym.png';
+import './css/Blog.css';
 
 
 const Blog = () => {
@@ -24,38 +23,37 @@ const Blog = () => {
   return (
     <div className="blog-page">
       {/* Hero Section */}
-      <div className="hero">
-        <img className="img-bg" src={gym} alt="Gimnasio" />
-        <img className="hero-logo" src={logo} alt="Logo" />
-        <div className="hero-middle">
-          <h1 className="hero-title">ÚLTIMOS ANUNCIOS Y COMUNICADOS</h1>
-          <p className="hero-p">Mantente informado sobre nuestras promociones, cambios de horario, nuevas sedes y comunicados especiales.</p>
+      <div className="blog-hero">
+        <img className="blog-img-bg" src={gym} alt="Gimnasio" />
+        <div className="blog-hero-middle">
+          <h1 className="blog-hero-title">ÚLTIMOS ANUNCIOS Y COMUNICADOS</h1>
+          <p className="blog-hero-p">Mantente informado sobre nuestras promociones, cambios de horario, nuevas sedes y comunicados especiales.</p>
         </div>
       </div>
 
       {/* Filtros */}
-      <div className="filtros-container">
-        <button 
-          className={`filtro-btn ${filtro === 'all' ? 'active' : ''}`}
+      <div className="blog-filtros-container">
+        <button
+          className={`blog-filtro-btn ${filtro === 'all' ? 'active' : ''}`}
           onClick={() => setFiltro('all')}
         >
           Todos
         </button>
 
-        <button 
-          className={`filtro-btn ${filtro === 'sede' ? 'active' : ''}`}
+        <button
+          className={`blog-filtro-btn ${filtro === 'sede' ? 'active' : ''}`}
           onClick={() => setFiltro('sede')}
         >
           Sedes
         </button>
-        <button 
-          className={`filtro-btn ${filtro === 'horario' ? 'active' : ''}`}
+        <button
+          className={`blog-filtro-btn ${filtro === 'horario' ? 'active' : ''}`}
           onClick={() => setFiltro('horario')}
         >
           Horarios
         </button>
-        <button 
-          className={`filtro-btn ${filtro === 'promocion' ? 'active' : ''}`}
+        <button
+          className={`blog-filtro-btn ${filtro === 'promocion' ? 'active' : ''}`}
           onClick={() => setFiltro('promocion')}
         >
           Promociones
@@ -68,8 +66,8 @@ const Blog = () => {
 
         <div className="blog-grid">
           {anunciosFiltrados.map((anuncio) => (
-            <div 
-              key={anuncio.id} 
+            <div
+              key={anuncio.id}
               className={`blog-card ${anuncio.destacado ? 'destacado' : ''} ${anuncio.tipo}`}
             >
               <div className="blog-card-header">
@@ -80,7 +78,7 @@ const Blog = () => {
               </div>
               <h3 className="blog-card-title">{anuncio.titulo}</h3>
               <p className="blog-card-content">{anuncio.contenido}</p>
-              <button 
+              <button
                 className="blog-card-button"
                 onClick={() => verDetalle(anuncio.id)}
               >

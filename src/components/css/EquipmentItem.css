@@ -13,7 +13,6 @@
     background: white;
     padding: 1.25rem;
     border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -32,18 +31,6 @@
     line-height: 1.4;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================== */
-
-/* Tablets (768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-    .equipment-list {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Mobile Large (481px - 767px) */
 @media (min-width: 250px) and (max-width: 767px) {
     .equipment-item {
         flex-direction: column;

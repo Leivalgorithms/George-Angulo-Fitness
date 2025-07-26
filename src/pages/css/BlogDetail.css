@@ -3,6 +3,10 @@
   min-height: 100vh;
   background-color: #f8f9fa;
   padding: 2rem 0;
+  padding: 8rem 2rem 4rem;
+    transform: translateY(-115px);
+    margin-bottom: -115px;
+    position: relative;
 }
 
 .blog-detail-container {
@@ -111,8 +115,11 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
+
   .blog-detail-page {
-    padding: 1.5rem 0;
+    padding: 8rem 2rem 4rem;
+    transform: translateY(-115px);
+     margin-bottom: -115px;
   }
 
   .blog-detail-card {
@@ -130,11 +137,16 @@
   .blog-detail-content h3 {
     font-size: 1.3rem;
   }
-
-
 }
 
 @media (max-width: 480px) {
+
+  .blog-detail-page {
+    padding: 8rem 2rem 4rem;
+    transform: translateY(-115px);
+    margin-bottom: -115px;
+  }
+
   .blog-detail-header {
     flex-direction: column;
     align-items: flex-start;

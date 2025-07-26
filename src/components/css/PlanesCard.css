@@ -1,42 +1,51 @@
 /* ==========================================================================
-   PLANES CARD COMPONENT - CON SISTEMA FEATURED
+   PLANES CARD COMPONENT - DISEÑO MEJORADO CON TEMÁTICA CONSISTENTE
    ========================================================================== */
 
 .planes-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .plan-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 2rem 1.5rem;
-    width: 300px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem 2rem;
     text-align: center;
     position: relative;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    border: 1px solid #f8f9fa;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #dee2e6;
 }
 
-.plan-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
 }
+
+.plan-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* ==========================================================================
+   PLAN DESTACADO (FEATURED)
+   ========================================================================== */
 
 .plan-card.featured {
     border-color: #FFD700;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.25);
     transform: scale(1.05);
-}
-
-.plan-card.featured:hover {
-    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
-    transform: scale(1.05) translateY(-5px);
 }
 
 .featured-badge {
@@ -55,24 +64,40 @@
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
+/* ==========================================================================
+   CONTENIDO DEL PLAN
+   ========================================================================== */
+
 .plan-tipo {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
     color: #2c3e50;
+    line-height: 1.2;
+    min-height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .plan-card.featured .plan-tipo {
     color: #7B1FA2;
+    text-shadow: 0 2px 4px rgba(123, 31, 162, 0.1);
+}
+
+.plan-precio-container {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
 }
 
 .plan-precio {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 900;
     color: #2c3e50;
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 .plan-card.featured .plan-precio {
@@ -81,9 +106,19 @@
 
 .mes-label {
     font-size: 0.9rem;
-    font-weight: normal;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-card.featured .mes-label {
     color: #6c757d;
 }
+
+/* ==========================================================================
+   BENEFICIOS
+   ========================================================================== */
 
 .plan-beneficios {
     list-style: none;
@@ -93,39 +128,83 @@
 }
 
 .plan-beneficios li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.2rem;
+    padding: 0.75rem 0 0.75rem 2.5rem;
     position: relative;
-    color: #555;
-    font-size: 0.95rem;
+    color: #2c3e50;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    border-radius: 10px;
 }
 
 .plan-beneficios li::before {
-    content: "✓";
+    content: '';
     position: absolute;
-    left: 0;
-    color: #7B1FA2;
-    font-weight: bold;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+    border-radius: 50%;
+}
+
+.plan-beneficios li::after {
+    content: '✓';
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    line-height: 1;
 }
 
 .plan-card.featured .plan-beneficios li::before {
-    color: #FFD700;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.plan-card.featured .plan-beneficios li::after {
+    color: #2c3e50;
+}
+
+/* ==========================================================================
+   PLAN SIN BENEFICIOS O VACÍO
+   ========================================================================== */
+
+.no-planes-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #6c757d;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */
 
-@media (max-width: 768px) {
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
     .planes-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
 
     .plan-card {
-        width: 100%;
-        max-width: 350px;
+        padding: 2rem 1.5rem;
     }
 
     .plan-card.featured {
@@ -133,6 +212,117 @@
     }
 
     .plan-card.featured:hover {
+        transform: translateY(-8px);
+    }
+
+    .plan-precio {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .planes-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .plan-card {
+        padding: 2rem 1.5rem;
+        margin: 0 auto;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .plan-card.featured {
+        transform: none;
+        margin-bottom: 1rem;
+    }
+
+    .plan-card.featured:hover {
         transform: translateY(-5px);
     }
+
+    .plan-tipo {
+        font-size: 1.5rem;
+        min-height: 2.2rem;
+    }
+
+    .plan-precio {
+        font-size: 2rem;
+    }
+
+    .plan-precio-container {
+        padding: 1.25rem 0;
+    }
+
+    .plan-beneficios li {
+        font-size: 0.95rem;
+        padding: 0.5rem 0 0.5rem 2.25rem;
+    }
+
+    .plan-beneficios li:hover {
+        padding-left: 2.75rem;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .plan-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .plan-tipo {
+        font-size: 1.5rem;
+    }
+
+    .plan-precio {
+        font-size: 1.8rem;
+    }
+
+    .mes-label {
+        font-size: 0.8rem;
+    }
+
+    .featured-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .plan-card.featured .plan-tipo {
+        margin-top: 0.5rem;
+    }
+}
+
+/* ==========================================================================
+   ANIMACIONES Y MICRO-INTERACCIONES
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.plan-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.plan-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.plan-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.plan-card:nth-child(4) {
+    animation-delay: 0.3s;
 }

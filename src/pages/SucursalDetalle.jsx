@@ -68,7 +68,7 @@ const SucursalDetalle = () => {
     // Función para obtener beneficios según el tipo de plan
     const obtenerBeneficios = (tipo, descripcion) => {
         const beneficios = [];
-        
+
         if (tipo.includes('vip')) {
             beneficios.push('Acceso a múltiples sedes');
             if (descripcion) beneficios.push(descripcion);
@@ -90,7 +90,7 @@ const SucursalDetalle = () => {
             beneficios.push('Acceso completo al gimnasio');
             beneficios.push('Uso de todos los equipos');
         }
-        
+
         return beneficios;
     };
 
@@ -104,57 +104,113 @@ const SucursalDetalle = () => {
             .replace('Usuario Extranjero', '(Extranjero)');
     };
 
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div className="error-msg">{error}</div>;
+    if (loading) {
+        return (
+            <div className="sucursal-detalle-page">
+                <div className="loading-container">
+                    Cargando información de la sucursal...
+                </div>
+            </div>
+        );
+    }
 
-    // Procesamiento de tarifas
-    const tarifasAdaptadas = (sucursal.tarifas || []).map((t) => ({
-        tipo: formatearTipo(t.tipo),
-        monto: t.monto,
-        moneda: t.moneda,
-        beneficios: obtenerBeneficios(t.tipo, t.descripcion),
-        destacado: t.destacado // Usar directamente el valor del JSON
-    }));
+    if (error) {
+        return (
+            <div className="sucursal-detalle-page">
+                <div className="error-msg">{error}</div>
+            </div>
+        );
+    }
+
+    // Se usa para poner de primero los planes featured
+    const tarifasAdaptadas = (sucursal.tarifas || [])
+        .map((t) => ({
+            tipo: formatearTipo(t.tipo),
+            monto: t.monto,
+            moneda: t.moneda,
+            beneficios: obtenerBeneficios(t.tipo, t.descripcion),
+            destacado: t.destacado
+        }))
+        .sort((a, b) => {
+            // Los destacados van primero (true se convierte en 1, false en 0
+            // Restamos para que los destacados (1) tengan menor valor y aparezcan primero
+            return Number(b.destacado) - Number(a.destacado);
+        });
 
     return (
-        <div className="sucursal-detalle-container">
-            <h1 className="sucursal-nombre">{sucursal.nombre}</h1>
-
-            <section className="sucursal-layout">
-                <div className="sucursal-info-box">
-                    <p><strong>Provincia:</strong> {sucursal.provincia}</p>
-                    <p>
-                        <strong>Teléfono:</strong>{' '}
-                        <a href={`tel:${sucursal.telefono}`} className="sucursal-telefono">
-                            {sucursal.telefono}
-                        </a>
+        <div className="sucursal-detalle-page">
+            {/* Hero Section */}
+            <section className="sucursal-hero">
+                <div className="sucursal-hero-content">
+                    <h1 className="sucursal-nombre">
+                        {sucursal.nombre.split(' ').map((palabra, index) => (
+                            index === sucursal.nombre.split(' ').length - 1 ? (
+                                <span key={index} className="highlight">{palabra}</span>
+                            ) : (
+                                <span key={index}>{palabra} </span>
+                            )
+                        ))}
+                    </h1>
+                    <p className="sucursal-provincia">
+                        Provincia de {sucursal.provincia}
                     </p>
-                    <p><strong>Dirección:</strong><br />{sucursal.direccion}</p>
-                </div>
-
-                <div className="sucursal-fotos">
-                    <Carrusel imagenes={sucursal.imagenes} />
                 </div>
             </section>
 
-            <section className="sucursal-horarios">
-                <h2 className="horarios-titulo">
-                    <span className="barra-decorativa" /> Horarios de Atención
-                </h2>
-                {(sucursal.horarios || []).map((h, i) => (
-                    <article key={i} className="horario-item">
-                        <strong>{h.dia}:</strong> {h.hora}
-                    </article>
-                ))}
-            </section>
+            {/* Contenido Principal */}
+            <section className="sucursal-content">
+                <div className="sucursal-container">
+                    {/* Layout Principal: Fotos + Info */}
+                    <section className="sucursal-layout">
+                        <div className="sucursal-fotos">
+                            <Carrusel imagenes={sucursal.imagenes} />
+                        </div>
 
-            <section className="sucursal-tarifas">
-                <h2>Tarifas</h2>
-                {tarifasAdaptadas.length > 0 ? (
-                    <PlanesCard tarifas={tarifasAdaptadas} />
-                ) : (
-                    <p>No hay tarifas disponibles.</p>
-                )}
+                        <div className="sucursal-info-box">
+                            <div className="info-section">
+                                <p>
+                                    <strong>Provincia:</strong><br />
+                                    {sucursal.provincia}
+                                </p>
+                                <p>
+                                    <strong>Ubicación:</strong><br />
+                                    {sucursal.direccion}
+                                </p>
+                                <p>
+                                    <strong>Teléfono:</strong><br />
+                                    <a href={`tel:${sucursal.telefono}`} className="sucursal-telefono">
+                                        {sucursal.telefono}
+                                    </a>
+                                </p>
+                            </div>
+
+                            {/* Horarios integrados */}
+                            <div className="horarios-section">
+                                <p className="horarios-titulo">
+                                    <strong>Horarios de Atención:</strong>
+                                </p>
+                                <div className="horarios-lista">
+                                    {(sucursal.horarios || []).map((h, i) => (
+                                        <div key={i} className="horario-item">
+                                            <span className="horario-dia">{h.dia}:</span>
+                                            <span className="horario-hora">{h.hora}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Sección de Tarifas */}
+                    <section className="sucursal-tarifas">
+                        <h2>Planes y Tarifas</h2>
+                        {tarifasAdaptadas.length > 0 ? (
+                            <PlanesCard tarifas={tarifasAdaptadas} />
+                        ) : (
+                            <p>No hay tarifas disponibles para esta sucursal.</p>
+                        )}
+                    </section>
+                </div>
             </section>
         </div>
     );

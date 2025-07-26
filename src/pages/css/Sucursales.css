@@ -1,258 +1,463 @@
-.sucursales {
+/* ==========================================================================
+   SUCURSALES PAGE - MAIN STYLES
+   ========================================================================== */
+
+.sucursales-page {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.sucursales-hero {
+    background: #7B1FA2;
+    color: white;
+    padding: 8rem 2rem 4rem;
     text-align: center;
-    padding: 4rem 2rem;
+    position: relative;
+    transform: translateY(-115px);
+    margin-bottom: -115px;
+}
+
+.sucursales-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.sucursales-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.sucursales-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.sucursales-hero-title .highlight {
+    color: #FFD700;
+}
+
+.sucursales-hero-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   MAP SECTION
+   ========================================================================== */
+
+.map-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.map-container {
     max-width: 1200px;
     margin: 0 auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 2rem;
 }
 
-.sucursales-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #333;
-    margin-bottom: 2rem;
-}
-
-.box-map {
-    margin: 2rem 0;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    border: 2px solid #eee;
-}
-
-.leaflet-container {
-    height: 400px;
-    width: 100%;
-}
-
-.leaflet-control-attribution {
-    display: none;
-}
-
-.sucursal-card {
-    border: 2px solid #7B1FA2;
-    border-radius: 1rem;
-    padding: 2rem;
-    margin-top: 2rem;
-    text-align: left;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    color: #333;
-    font-size: 1rem;
-    position: relative;
-    box-shadow: 0 4px 16px rgba(123, 31, 162, 0.15);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.prov-bold {
-    font-weight: bold;
-}
-
-.card-prov {
-    margin: 0.7rem 0;
-    font-size: 0.95rem;
-}
-
-.card-phone {
-    font-size: 0.95rem;
-    color: #333;
-}
-
-.card-phone a {
-    color: #333;
-    text-decoration: underline;
-}
-
-.card-hours p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
-}
-
-.sucursal-boton {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 1rem;
-    background-color: white;
-    border: 2px solid #7B1FA2;
-    border-radius: 20px;
-    color: #7B1FA2;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 2px 6px rgba(123, 31, 162, 0.4);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.sucursal-boton:hover {
-    background-color: #7B1FA2;
-    color: white;
-}
-
-.sucursal-boton svg {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.search-bar-container {
-    margin: 20px 0;
+.map-header {
     text-align: center;
+    margin-bottom: 3rem;
 }
 
-.search-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.search-bar {
-    width: 100%;
-    max-width: 1200px;
-    padding: 12px 40px 12px 16px;
-    border: 3px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.search-bar:focus {
-    border-color: #888;
-    outline: none;
-}
-
-.search-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    pointer-events: none; /* No bloquea el input */
-}
-
-.filters-container {
-    background-color: #7B1FA2;
-    padding: 20px;
-    border-radius: 10px;
+.map-title {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
     align-items: center;
-    margin: 30px 0;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.search-wrapper {
-    position: relative;
-    flex: 1 1 250px;
+.map-icon {
+    color: #7B1FA2;
+    font-size: 1.5rem;
 }
 
-.search-bar {
-    padding: 10px 40px 10px 15px;
-    border: none;
+.map-description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.search-icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #000;
+.map-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
 }
 
-.filter-wrapper {
-    flex: 1 1 200px;
-}
-
-.filter-select {
+.leaflet-map {
+    height: 450px;
     width: 100%;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
+}
+
+/* ==========================================================================
+   MAP POPUP STYLES
+   ========================================================================== */
+
+.popup-content {
+    max-width: 280px;
+    padding: 0.5rem;
+}
+
+.popup-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.popup-info {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
 }
 
 .popup-carrusel {
     position: relative;
-    margin-top: 10px;
-    border-radius: 10px;
+    margin-top: 0.75rem;
+    border-radius: 8px;
     overflow: hidden;
-    max-width: 240px;
-    max-height: 160px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.popup-carrusel img {
+.popup-image {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    height: 120px;
     object-fit: cover;
     display: block;
 }
 
-.popup-flecha {
+.popup-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    font-size: 18px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
     font-weight: bold;
-    line-height: 22px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.popup-flecha:hover {
-    background: rgba(0, 0, 0, 0.6);
+.popup-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
 }
 
-.popup-flecha.izquierda {
-    left: 5px;
+.popup-arrow.left {
+    left: 8px;
 }
 
-.popup-flecha.derecha {
-    right: 5px;
+.popup-arrow.right {
+    right: 8px;
 }
 
+/* ==========================================================================
+   FILTERS SECTION
+   ========================================================================== */
 
-@media (max-width: 768px) {
-    .search-bar {
-        font-size: 14px;
-        padding: 10px 36px 10px 14px;
+.filters-section {
+    background: white;
+    padding: 2rem 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 100;
+}
+
+.filters-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    padding: 0 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 2;
+    max-width: 500px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e9ecef;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #7B1FA2;
+    background: white;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.filter-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e9ecef;
+    border-radius: 50px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #7B1FA2;
+    background: white;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.1);
+}
+
+.filter-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   SUCURSALES CONTENT SECTION
+   ========================================================================== */
+
+.sucursales-content {
+    padding: 4rem 0;
+}
+
+.sucursales-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sucursales-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+.sucursales-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   NO RESULTS STATE
+   ========================================================================== */
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6c757d;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.no-results-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.no-results-text {
+    font-size: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   LEAFLET CUSTOM STYLES
+   ========================================================================== */
+
+.leaflet-control-attribution {
+    display: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-tip {
+    background: white;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - MAIN PAGE
+   ========================================================================== */
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sucursales-hero {
+        padding: 8rem 2rem 4rem;
+    }
+
+    .sucursales-hero-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    .filters-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-wrapper,
+    .filter-wrapper {
+        max-width: none;
+        width: 100%;
     }
 }
 
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .sucursales-hero {
+        padding: 8rem 2rem 4rem;
+    }
+
+    .filters-container {
+        flex-direction: column;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .search-wrapper,
+    .filter-wrapper {
+        max-width: none;
+        width: 100%;
+    }
+
+    .map-container,
+    .sucursales-container {
+        padding: 0 1rem;
+    }
+
+    .map-title {
+        font-size: 1.4rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .map-description {
+        font-size: 1rem;
+    }
+
+    .map-wrapper {
+        border-radius: 15px;
+    }
+
+    .leaflet-map {
+        height: 350px;
+    }
+
+    .popup-content {
+        max-width: 240px;
+    }
+
+    .popup-image {
+        height: 100px;
+    }
+
+    .popup-arrow {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-    .search-bar {
-        font-size: 13px;
-        padding: 8px 32px 8px 12px;
+    .sucursales-hero {
+        padding: 8rem 3rem 1rem;
+    }
+
+    .filters-container {
+        padding: 0 0.75rem;
+    }
+
+    .map-container,
+    .sucursales-container {
+        padding: 0 0.75rem;
+    }
+
+    .sucursales-hero-description {
+        display: none;
     }
 }
